@@ -48,8 +48,9 @@
     "colorSchema": "light",
     "defaults": {
       "fonts": {
-        "sans": "Sofia Sans Condensed,Sofia Sans,system-ui,sans-serif",
-        "mono": "JetBrains Mono"
+        "sans": "Sofia Sans Condensed,Sofia Sans,Boogaloo",
+        "mono": "JetBrains Mono",
+        "weights": "200,400,600,900"
       },
       "transition": "none"
     }

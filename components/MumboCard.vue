@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   accent?: string
-  n?: string | number
+  number?: string | number
 }>()
 </script>
 
@@ -9,7 +9,7 @@ defineProps<{
   <div
     class="mumbo-cards-item"
     :style="accent ? { '--mumbo-card-accent': accent } : undefined"
-    :data-n="n"
+    :data-n="number"
   >
     <slot />
   </div>

@@ -8,6 +8,7 @@ withDefaults(defineProps<{
   subtitle?: string
   stamp?: string
   stampSide?: 'tl' | 'tr' | 'bl' | 'br'
+  tag?: string
 }>(), {
   pattern: 'grid',
   palette: 'sage',
@@ -25,6 +26,7 @@ withDefaults(defineProps<{
       :subtitle="subtitle"
       :stamp="stamp"
       :stamp-side="stampSide"
+      :tag="tag"
     >
       <slot />
     </ChapterCard>

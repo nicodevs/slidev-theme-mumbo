@@ -142,7 +142,7 @@
 .mumbo-card .mumbo-label,
 .mumbo-card .mumbo-subtitle {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--mumbo-ink);
@@ -160,6 +160,38 @@
   color: var(--mumbo-ink);
   margin: 1.75rem 0;
   max-width: 16ch;
+}
+
+/* ===== Masking-tape tag ===== */
+
+.mumbo-tape {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2.5deg);
+  z-index: 4;
+  padding: 0.4rem 1.8rem 0.5rem;
+  font-family: "Boogaloo", "Patrick Hand", "Bradley Hand", cursive;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: rgba(22, 36, 58, 0.82);
+  letter-spacing: 0.02em;
+  background: #f4e8bc;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.18));
+  user-select: none;
+  white-space: nowrap;
+
+  --tape-edge-left: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 32' preserveAspectRatio='none'><path fill='black' d='M12 0 H5 L2 4 L6 8 L1 12 L4 16 L0 20 L3 24 L1 28 L5 32 H12 Z'/></svg>");
+  --tape-edge-right: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 32' preserveAspectRatio='none'><path fill='black' d='M0 0 H7 L10 4 L6 8 L11 12 L8 16 L12 20 L9 24 L11 28 L7 32 H0 Z'/></svg>");
+
+  -webkit-mask:
+    var(--tape-edge-left) left center / 10px 100% no-repeat,
+    var(--tape-edge-right) right center / 10px 100% no-repeat,
+    linear-gradient(#000, #000) center / calc(100% - 18px) 100% no-repeat;
+  mask:
+    var(--tape-edge-left) left center / 10px 100% no-repeat,
+    var(--tape-edge-right) right center / 10px 100% no-repeat,
+    linear-gradient(#000, #000) center / calc(100% - 18px) 100% no-repeat;
 }
 
 /* ===== Polaroid stamp ===== */
@@ -263,6 +295,52 @@
   animation: mumbo-card-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* 2 cards: scale up */
+.mumbo-cards-item:nth-child(1):nth-last-child(2),
+.mumbo-cards-item:nth-child(2):nth-last-child(1) {
+  flex: 0 0 calc((100% - 1.5rem) / 2);
+  min-height: 16rem;
+  font-size: 2.4rem;
+  padding: 2.5rem 2.5rem 3.5rem;
+}
+
+.mumbo-cards-item:nth-child(1):nth-last-child(2)::before,
+.mumbo-cards-item:nth-child(2):nth-last-child(1)::before {
+  font-size: 2.6rem;
+}
+
+.mumbo-cards-item:nth-child(1):nth-last-child(2)::after,
+.mumbo-cards-item:nth-child(2):nth-last-child(1)::after {
+  width: 0.95rem;
+  height: 0.95rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+}
+
+/* 1 card: scale to cover-card size */
+.mumbo-cards-item:only-child {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 50%;
+  min-width: 24rem;
+  max-width: 44rem;
+  height: 22rem;
+  padding: 3.25rem 3.5rem 4.5rem;
+  font-size: 3.4rem;
+  text-align: center;
+}
+
+.mumbo-cards-item:only-child::before {
+  font-size: 3.6rem;
+}
+
+.mumbo-cards-item:only-child::after {
+  width: 1.3rem;
+  height: 1.3rem;
+  right: 2rem;
+  bottom: 2rem;
+}
+
 .mumbo-cards-item:nth-child(1) { animation-delay: 0.1s; }
 .mumbo-cards-item:nth-child(2) { animation-delay: 0.25s; }
 .mumbo-cards-item:nth-child(3) { animation-delay: 0.4s; }
@@ -316,7 +394,8 @@
   line-height: 1.05;
   text-transform: uppercase;
   margin: 0.5rem 0 1.75rem;
-  align-self: flex-start;
+  align-self: center;
+  text-align: center;
 }
 
 .mumbo-items ul,
@@ -324,9 +403,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   counter-reset: mumbo-item;
   width: 100%;
 }
@@ -334,9 +413,10 @@
 .mumbo-items li {
   counter-increment: mumbo-item;
   position: relative;
-  padding: 0.6rem 0.8rem 0.6rem 3rem;
+  margin: 0;
+  padding: 0.85rem 1rem 0.85rem 3.5rem;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   background: var(--mumbo-paper);
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -348,18 +428,18 @@
 .mumbo-items li::before {
   content: counter(mumbo-item);
   position: absolute;
-  left: 0.6rem;
+  left: 0.7rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 2.4rem;
+  height: 2.4rem;
   display: grid;
   place-items: center;
   background: var(--mumbo-accent);
   color: #fff;
   border-radius: 50%;
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
 }
 
 /* ===== Page Number ===== */
@@ -414,6 +494,7 @@
   left: 50%;
   transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.65);
+  font-family: var(--slidev-code-font-family, "JetBrains Mono", monospace);
   font-size: 0.85rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
