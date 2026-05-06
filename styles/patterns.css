@@ -1,0 +1,94 @@
+/* ===== Mumbo: Backgrounds (palette + pattern) ===== */
+
+
+/* ---- Palettes: pattern base + accent ---- */
+
+.mumbo-palette-sage {
+  --mumbo-bg: #88a989;
+  --mumbo-accent: #5e8062;
+  --mumbo-line: rgba(255, 255, 255, 0.22);
+}
+
+.mumbo-palette-forest {
+  --mumbo-bg: #4a6b48;
+  --mumbo-accent: #2e4a2c;
+  --mumbo-line: rgba(255, 255, 255, 0.18);
+}
+
+.mumbo-palette-blue {
+  --mumbo-bg: #b3cde4;
+  --mumbo-accent: #4d7eb3;
+  --mumbo-line: rgba(255, 255, 255, 0.45);
+}
+
+.mumbo-palette-red {
+  --mumbo-bg: #b8332b;
+  --mumbo-accent: #8a1f1c;
+  --mumbo-line: rgba(255, 255, 255, 0.18);
+}
+
+.mumbo-palette-kraft {
+  --mumbo-bg: #d2a577;
+  --mumbo-accent: #a67148;
+  --mumbo-line: rgba(255, 255, 255, 0.22);
+}
+
+.mumbo-palette-pink {
+  --mumbo-bg: #f0c2d4;
+  --mumbo-accent: #c0426d;
+  --mumbo-line: rgba(255, 255, 255, 0.5);
+}
+
+/* ---- Patterns: parameterized by the palette vars ---- */
+
+.mumbo-pattern-grid {
+  background-color: var(--mumbo-bg);
+  background-image:
+    linear-gradient(var(--mumbo-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mumbo-line) 1px, transparent 1px);
+  background-size: 26px 26px, 26px 26px;
+}
+
+.mumbo-pattern-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--mumbo-bg) 0 60px,
+    var(--mumbo-accent) 60px 120px
+  );
+}
+
+.mumbo-pattern-gingham {
+  background-color: var(--mumbo-bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.45) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.45) 50%, transparent 50%);
+  background-size: 64px 64px, 64px 64px;
+}
+
+.mumbo-pattern-dots {
+  background-color: var(--mumbo-bg);
+  background-image: radial-gradient(var(--mumbo-accent) 2px, transparent 2.5px);
+  background-size: 28px 28px;
+}
+
+.mumbo-pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--mumbo-bg) 0 30px,
+    var(--mumbo-accent) 30px 60px
+  );
+}
+
+.mumbo-pattern-plaid {
+  background-color: var(--mumbo-bg);
+  background-image:
+    linear-gradient(var(--mumbo-accent) 8px, transparent 8px),
+    linear-gradient(90deg, var(--mumbo-accent) 8px, transparent 8px),
+    linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+}
+
+.mumbo-pattern-solid {
+  background-color: var(--mumbo-bg);
+}
