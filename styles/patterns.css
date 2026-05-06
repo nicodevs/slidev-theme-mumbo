@@ -39,6 +39,12 @@
   --mumbo-line: rgba(255, 255, 255, 0.5);
 }
 
+.mumbo-palette-amber {
+  --mumbo-bg: #f2a93b;
+  --mumbo-accent: #b86b14;
+  --mumbo-line: rgba(255, 255, 255, 0.3);
+}
+
 /* ---- Patterns: parameterized by the palette vars ---- */
 
 .mumbo-pattern-grid {
@@ -50,11 +56,14 @@
 }
 
 .mumbo-pattern-stripes {
-  background-image: repeating-linear-gradient(
+  background-color: var(--mumbo-bg);
+  background-image: linear-gradient(
     90deg,
-    var(--mumbo-bg) 0 60px,
-    var(--mumbo-accent) 60px 120px
+    transparent 50%,
+    var(--mumbo-line) 50%
   );
+  background-size: calc(100% / 6) 100%;
+  background-position: center;
 }
 
 .mumbo-pattern-gingham {

@@ -18,12 +18,15 @@
 
 .slidev-layout h1,
 .slidev-layout h2,
-.slidev-layout h3 {
+.slidev-layout h3,
+.mumbo-title,
+.mumbo-items-headline {
   color: var(--mumbo-ink);
   text-transform: uppercase;
   letter-spacing: 0.005em;
   line-height: 1.05;
   font-weight: 900;
+  text-wrap: balance;
 }
 
 .slidev-layout h1 { font-size: 2.6rem; }
@@ -111,7 +114,9 @@
 .mumbo-card {
   position: relative;
   margin: 0 auto;
-  width: min(78%, 880px);
+  width: fit-content;
+  min-width: 30%;
+  max-width: 70%;
   min-height: 60%;
   padding: 3.25rem 3.5rem;
   border-radius: var(--mumbo-radius);
@@ -122,6 +127,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: mumbo-card-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
 
 .mumbo-card.is-content {
@@ -178,8 +186,8 @@
 .mumbo-polaroid-logo {
   position: relative;
   z-index: 1;
-  width: 55%;
-  max-height: 55%;
+  width: 75%;
+  max-height: 75%;
   object-fit: contain;
   display: block;
 }
@@ -192,18 +200,103 @@
 /* ===== Layout-specific tweaks ===== */
 
 .slidev-layout.cover,
-.slidev-layout.section,
-.slidev-layout.statement,
-.slidev-layout.fact,
 .slidev-layout.quote,
-.slidev-layout.intro,
-.slidev-layout.end,
 .slidev-layout.items,
 .slidev-layout.default,
-.slidev-layout.code {
+.slidev-layout.code,
+.slidev-layout.cards {
   display: grid;
-  place-content: center;
+  grid-template-columns: 1fr;
+  place-items: center;
   height: 100%;
+}
+
+.slidev-layout.quote .mumbo-card .mumbo-title {
+  font-size: 3.4rem;
+  max-width: 22ch;
+  quotes: "\201C" "\201D";
+}
+
+.slidev-layout.quote .mumbo-card .mumbo-title::before,
+.slidev-layout.quote .mumbo-card .mumbo-title::after {
+  font-family: Georgia, "Times New Roman", serif;
+  opacity: 0.35;
+}
+
+.slidev-layout.quote .mumbo-card .mumbo-title::before {
+  content: open-quote;
+  margin-right: 0.1em;
+}
+
+.slidev-layout.quote .mumbo-card .mumbo-title::after {
+  content: close-quote;
+  margin-left: 0.1em;
+}
+
+/* ===== Cards layout ===== */
+
+.mumbo-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  counter-reset: mumbo-card;
+  max-width: min(90vw, 1100px);
+}
+
+.mumbo-cards-item {
+  counter-increment: mumbo-card;
+  position: relative;
+  flex: 0 0 calc((100% - 4rem) / 3);
+  min-width: 18rem;
+  min-height: 13rem;
+  background: var(--mumbo-card);
+  border-radius: 16px;
+  padding: 2rem 2rem 3rem;
+  font-weight: 700;
+  font-size: 1.85rem;
+  line-height: 1.2;
+  color: var(--mumbo-ink);
+  box-shadow: var(--mumbo-card-shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: mumbo-card-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.mumbo-cards-item:nth-child(1) { animation-delay: 0.1s; }
+.mumbo-cards-item:nth-child(2) { animation-delay: 0.25s; }
+.mumbo-cards-item:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes mumbo-card-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mumbo-cards-item::before {
+  content: "0" counter(mumbo-card);
+  display: block;
+  color: var(--mumbo-card-accent, var(--mumbo-accent));
+  font-weight: 900;
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.85rem;
+}
+
+.mumbo-cards-item[data-n]::before {
+  content: attr(data-n);
+}
+
+.mumbo-cards-item::after {
+  content: "";
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--mumbo-card-accent, var(--mumbo-accent));
 }
 
 .slidev-layout.code .mumbo-code-slot {
@@ -269,23 +362,6 @@
   font-size: 0.95rem;
 }
 
-.slidev-layout.section .mumbo-card .mumbo-title { font-size: 4.5rem; }
-.slidev-layout.fact .mumbo-card .mumbo-title { font-size: 6rem; }
-.slidev-layout.statement .mumbo-card .mumbo-title { font-size: 3.4rem; }
-
-.slidev-layout.quote .mumbo-card {
-  text-align: center;
-}
-.slidev-layout.quote blockquote {
-  border-left: none;
-  font-size: 1.8rem;
-  line-height: 1.5;
-  font-weight: 600;
-  max-width: 24ch;
-  margin: 0 auto;
-  padding: 0;
-}
-
 /* ===== Page Number ===== */
 
 .slidev-page-number {
@@ -306,6 +382,9 @@
   width: fit-content;
   max-width: 100%;
   flex: 0 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: mumbo-card-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
 
 .mumbo-code-window-bar {

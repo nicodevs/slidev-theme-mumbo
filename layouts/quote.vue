@@ -9,8 +9,8 @@ withDefaults(defineProps<{
   stamp?: string
   stampSide?: 'tl' | 'tr' | 'bl' | 'br'
 }>(), {
-  pattern: 'diagonal',
-  palette: 'kraft',
+  pattern: 'grid',
+  palette: 'sage',
 })
 </script>
 

@@ -11,7 +11,7 @@ stampSide: tr
 ---
 
 ---
-layout: intro
+layout: cover
 label: Intro
 headline: Hi, I'm Nico
 subtitle: Brief speaker intro
@@ -22,7 +22,7 @@ stampSide: tr
 ---
 
 ---
-layout: section
+layout: cover
 label: Section
 headline: Time to Start Building
 subtitle: Layouts & patterns
@@ -33,7 +33,7 @@ stampSide: tl
 ---
 
 ---
-layout: statement
+layout: cover
 label: Statement
 headline: Kinda Hard to Do With a Wet Keyboard
 subtitle: But we ship anyway
@@ -44,7 +44,7 @@ stampSide: br
 ---
 
 ---
-layout: fact
+layout: cover
 label: Fact
 headline: 42%
 subtitle: of slides are made on a deadline
@@ -55,7 +55,7 @@ stampSide: bl
 ---
 
 ---
-layout: quote
+layout: cover
 label: Quote
 headline: Good Design Is As Little Design As Possible
 subtitle: — Dieter Rams
@@ -81,6 +81,18 @@ stampSide: tr
 - Optional polaroid stamp
 - Monokai code blocks
 - Auto-publish to npm
+
+---
+layout: cards
+pattern: grid
+palette: blue
+---
+
+<MumboCards>
+  <MumboCard accent="#5da9e9">Server-Sent Events</MumboCard>
+  <MumboCard accent="#9b6dff">WebSockets</MumboCard>
+  <MumboCard accent="#ff8a3d">WebRTC</MumboCard>
+</MumboCards>
 
 ---
 layout: code
@@ -148,7 +160,7 @@ function submit() {
 </CodeWindow>
 
 ---
-layout: end
+layout: cover
 label: End
 headline: Pearlescent Pinky Bashing
 subtitle: That's a wrap
