@@ -1,5 +1,7 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+import { computed } from 'vue'
+
+const props = withDefaults(defineProps<{
   class?: string
   pattern?: string
   palette?: string
@@ -9,10 +11,20 @@ withDefaults(defineProps<{
   stamp?: string
   stampSide?: 'tl' | 'tr' | 'bl' | 'br'
   tag?: string
+  width?: number | string
 }>(), {
   pattern: 'grid',
   palette: 'sage',
 })
+
+function asPct(value: typeof props.width): string | null {
+  if (value == null) return null
+  const n = typeof value === 'string' ? Number(value) : value
+  return Number.isInteger(n) ? `${n}%` : null
+}
+
+const cardWidth = computed(() => asPct(props.width) ?? 'fit-content')
+const cardMaxWidth = computed(() => asPct(props.width) ?? '70%')
 </script>
 
 <template>
@@ -32,3 +44,10 @@ withDefaults(defineProps<{
     </ChapterCard>
   </div>
 </template>
+
+<style>
+.slidev-layout.cover .mumbo-card {
+  width: v-bind(cardWidth);
+  max-width: v-bind(cardMaxWidth);
+}
+</style>
