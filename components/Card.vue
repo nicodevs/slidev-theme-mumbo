@@ -1,16 +1,17 @@
 <script setup lang="ts">
 defineProps<{
-  accent?: string
-  number?: string | number
+  color?: string
+  label?: string | number
+  text?: string
 }>()
 </script>
 
 <template>
   <div
     class="mumbo-cards-item"
-    :style="accent ? { '--mumbo-card-accent': accent } : undefined"
-    :data-n="number"
+    :style="color ? { '--mumbo-card-color': color } : undefined"
+    :data-label="label"
   >
-    <slot />
+    <slot>{{ text }}</slot>
   </div>
 </template>

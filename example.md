@@ -1,106 +1,119 @@
 ---
 theme: ./
-layout: cover
-label: MadVue 2026
-headline: VUE REAL-TIME APPS
-subtitle: A talk by Nico Devs
+layout: default
 pattern: grid
 palette: sage
-stamp: https://vuejs.org/images/logo.png
-stampSide: tr
+cover:
+  label: MadVue 2026
+  headline: VUE REAL-TIME APPS
+  subtitle: A talk by Nico Devs
+  stamp:
+    url: https://vuejs.org/images/logo.png
+    position: tr
 ---
 
 ---
-layout: cover
-label: Intro
-headline: Hi, I'm Nico
-subtitle: Brief speaker intro
+layout: default
 pattern: dots
 palette: kraft
-stamp: https://vuejs.org/images/logo.png
-stampSide: tr
+cover:
+  label: Intro
+  headline: Hi, I'm Nico
+  subtitle: Brief speaker intro
+  stamp:
+    url: https://vuejs.org/images/logo.png
+    position: tr
 ---
 
 ---
-layout: cover
-label: Section
-headline: Time to Start Building
-subtitle: Layouts & patterns
+layout: default
 pattern: stripes
 palette: forest
-stamp: https://vuejs.org/images/logo.png
-stampSide: tl
+cover:
+  label: Section
+  headline: Time to Start Building
+  subtitle: Layouts & patterns
+  stamp:
+    url: https://vuejs.org/images/logo.png
+    position: tl
 ---
 
 ---
-layout: cover
-label: Statement
-headline: Kinda Hard to Do With a Wet Keyboard
-subtitle: But we ship anyway
+layout: default
 pattern: gingham
 palette: blue
-stamp: https://vuejs.org/images/logo.png
-stampSide: br
+cover:
+  label: Statement
+  headline: Kinda Hard to Do With a Wet Keyboard
+  subtitle: But we ship anyway
+  stamp:
+    url: https://vuejs.org/images/logo.png
+    position: br
 ---
 
 ---
-layout: cover
-label: Fact
-headline: 42%
-subtitle: of slides are made on a deadline
+layout: default
 pattern: grid
 palette: red
-stamp: https://vuejs.org/images/logo.png
-stampSide: bl
+cover:
+  label: Fact
+  headline: 42%
+  subtitle: of slides are made on a deadline
+  stamp:
+    url: https://vuejs.org/images/logo.png
+    position: bl
 ---
 
 ---
-layout: cover
-label: Quote
-headline: Good Design Is As Little Design As Possible
-subtitle: — Dieter Rams
+layout: default
 pattern: diagonal
 palette: kraft
-stamp: https://vuejs.org/images/logo.png
-stampSide: tr
+cover:
+  label: Quote
+  headline: Good Design Is As Little Design As Possible
+  subtitle: — Dieter Rams
+  stamp:
+    url: https://vuejs.org/images/logo.png
+    position: tr
 ---
 
 ---
-layout: items
+layout: default
 label: Items
 headline: What's in the Box
 pattern: dots
 palette: forest
-stamp: https://vuejs.org/images/logo.png
-stampSide: tr
+stamp:
+  url: https://vuejs.org/images/logo.png
+  position: tr
+items:
+  - Cream chapter cards
+  - Six craft-paper palettes
+  - Seven repeating patterns
+  - Optional polaroid stamp
+  - Monokai code blocks
+  - Auto-publish to npm
 ---
 
-- Cream chapter cards
-- Six craft-paper palettes
-- Seven repeating patterns
-- Optional polaroid stamp
-- Monokai code blocks
-- Auto-publish to npm
-
 ---
-layout: cards
+layout: default
 pattern: grid
 palette: blue
+cards:
+  - text: Server-Sent Events
+    color: '#5da9e9'
+  - text: WebSockets
+    color: '#9b6dff'
+  - text: WebRTC
+    color: '#ff8a3d'
 ---
 
-<CardsGrid>
-  <Card accent="#5da9e9">Server-Sent Events</Card>
-  <Card accent="#9b6dff">WebSockets</Card>
-  <Card accent="#ff8a3d">WebRTC</Card>
-</CardsGrid>
-
 ---
-layout: code
+layout: default
 pattern: grid
 palette: blue
+snippet: chat.vue
 ---
-
-<CodeWindow title="chat.vue">
 
 ````md magic-move
 ```vue
@@ -157,17 +170,17 @@ function submit() {
 ```
 ````
 
-</CodeWindow>
-
 ---
-layout: cover
-label: End
-headline: Pearlescent Pinky Bashing
-subtitle: That's a wrap
+layout: default
 pattern: stripes
 palette: pink
-stamp: https://vuejs.org/images/logo.png
-stampSide: bl
+cover:
+  label: End
+  headline: Pearlescent Pinky Bashing
+  subtitle: That's a wrap
+  stamp:
+    url: https://vuejs.org/images/logo.png
+    position: bl
 ---
 
 ---

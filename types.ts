@@ -1,14 +1,19 @@
 export type StampSide = 'tl' | 'tr' | 'bl' | 'br'
 
+export interface StampConfig {
+  url: string
+  position?: StampSide
+}
+
 export interface LayoutBaseProps {
   class?: string
   pattern?: string
   backgroundColor?: string
+  accentColor?: string
 }
 
 export interface StampProps {
-  stamp?: string
-  stampSide?: StampSide
+  stamp?: StampConfig
 }
 
 export interface CoverProps {
@@ -17,4 +22,14 @@ export interface CoverProps {
   quote?: string
   subtitle?: string
   tag?: string
+}
+
+export interface CoverConfig extends CoverProps, StampProps {
+  width?: number | string
+}
+
+export interface CardItem {
+  text: string
+  label?: string | number
+  color?: string
 }

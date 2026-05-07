@@ -2,7 +2,8 @@
 
 .slidev-layout {
   --mumbo-bg: #88a989;
-  --mumbo-accent: rgba(0, 0, 0, 0.2);
+  --mumbo-accent: var(--mumbo-ink-muted);
+  --mumbo-pattern: rgba(0, 0, 0, 0.2);
   --mumbo-line: rgba(255, 255, 255, 0.3);
 }
 
@@ -37,7 +38,7 @@
 
 .mumbo-pattern-dots {
   background-color: var(--mumbo-bg);
-  background-image: radial-gradient(var(--mumbo-accent) 2px, transparent 2.5px);
+  background-image: radial-gradient(var(--mumbo-pattern) 2px, transparent 2.5px);
   background-size: 28px 28px;
 }
 
@@ -45,15 +46,15 @@
   background-image: repeating-linear-gradient(
     45deg,
     var(--mumbo-bg) 0 30px,
-    var(--mumbo-accent) 30px 60px
+    var(--mumbo-pattern) 30px 60px
   );
 }
 
 .mumbo-pattern-plaid {
   background-color: var(--mumbo-bg);
   background-image:
-    linear-gradient(var(--mumbo-accent) 8px, transparent 8px),
-    linear-gradient(90deg, var(--mumbo-accent) 8px, transparent 8px),
+    linear-gradient(var(--mumbo-pattern) 8px, transparent 8px),
+    linear-gradient(90deg, var(--mumbo-pattern) 8px, transparent 8px),
     linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
   background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;

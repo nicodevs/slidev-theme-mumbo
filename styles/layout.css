@@ -19,8 +19,7 @@
 .slidev-layout h1,
 .slidev-layout h2,
 .slidev-layout h3,
-.mumbo-title,
-.mumbo-items-headline {
+.mumbo-title {
   color: var(--mumbo-ink);
   text-transform: uppercase;
   letter-spacing: 0.005em;
@@ -40,7 +39,7 @@
 }
 
 .slidev-layout strong {
-  color: var(--mumbo-accent, #5e8062);
+  color: var(--mumbo-accent);
   font-weight: 800;
 }
 
@@ -50,17 +49,17 @@
 }
 
 .slidev-layout a {
-  color: var(--mumbo-accent, #5e8062);
+  color: var(--mumbo-accent);
   text-decoration: none;
-  border-bottom: 2px solid var(--mumbo-accent, #5e8062);
+  border-bottom: 2px solid var(--mumbo-accent);
 }
 
 .slidev-layout li::marker {
-  color: var(--mumbo-accent, #5e8062);
+  color: var(--mumbo-accent);
 }
 
 .slidev-layout blockquote {
-  border-left: 4px solid var(--mumbo-accent, #5e8062);
+  border-left: 4px solid var(--mumbo-accent);
   padding-left: 1.25rem;
   font-style: normal;
   font-weight: 600;
@@ -231,11 +230,7 @@
 
 /* ===== Layout-specific tweaks ===== */
 
-.slidev-layout.cover,
-.slidev-layout.items,
-.slidev-layout.default,
-.slidev-layout.code,
-.slidev-layout.blank {
+.slidev-layout.default {
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
@@ -271,12 +266,10 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  counter-reset: mumbo-card;
   max-width: min(90vw, 1100px);
 }
 
 .mumbo-cards-item {
-  counter-increment: mumbo-card;
   position: relative;
   flex: 0 0 calc((100% - 4rem) / 3);
   min-width: 18rem;
@@ -303,8 +296,8 @@
   padding: 2.5rem 2.5rem 3.5rem;
 }
 
-.mumbo-cards-item:nth-child(1):nth-last-child(2)::before,
-.mumbo-cards-item:nth-child(2):nth-last-child(1)::before {
+.mumbo-cards-item:nth-child(1):nth-last-child(2)[data-label]::before,
+.mumbo-cards-item:nth-child(2):nth-last-child(1)[data-label]::before {
   font-size: 2.6rem;
 }
 
@@ -329,7 +322,7 @@
   text-align: center;
 }
 
-.mumbo-cards-item:only-child::before {
+.mumbo-cards-item:only-child[data-label]::before {
   font-size: 3.6rem;
 }
 
@@ -351,18 +344,14 @@
   }
 }
 
-.mumbo-cards-item::before {
-  content: "0" counter(mumbo-card);
+.mumbo-cards-item[data-label]::before {
+  content: attr(data-label);
   display: block;
-  color: var(--mumbo-card-accent, var(--mumbo-accent));
+  color: var(--mumbo-card-color, var(--mumbo-accent));
   font-weight: 900;
   font-size: 2.1rem;
   letter-spacing: 0.02em;
   margin-bottom: 0.85rem;
-}
-
-.mumbo-cards-item[data-n]::before {
-  content: attr(data-n);
 }
 
 .mumbo-cards-item::after {
@@ -373,25 +362,16 @@
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 50%;
-  background: var(--mumbo-card-accent, var(--mumbo-accent));
+  background: var(--mumbo-card-color, var(--mumbo-accent));
 }
 
-.slidev-layout.code .mumbo-code-slot {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
+/* ===== Items mode: render lists as a chunky 2-col grid ===== */
 
-/* ===== Items layout: render lists as a chunky 2-col grid ===== */
+.mumbo-card.is-items { justify-content: flex-start; }
 
-.slidev-layout.items .mumbo-card { justify-content: flex-start; }
-
-.mumbo-items-headline {
-  font-weight: 900;
+.mumbo-card.is-items .mumbo-title {
   font-size: 2.4rem;
-  line-height: 1.05;
-  text-transform: uppercase;
+  max-width: none;
   margin: 0.5rem 0 1.75rem;
   align-self: center;
   text-align: center;
@@ -505,17 +485,3 @@
   box-shadow: none !important;
 }
 
-/* ===== Two columns ===== */
-
-.slidev-layout.two-columns {
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 3rem;
-}
-
-.slidev-layout.two-columns .mumbo-card {
-  width: auto;
-  margin: 0;
-}
