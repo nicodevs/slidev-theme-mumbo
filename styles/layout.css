@@ -232,35 +232,34 @@
 /* ===== Layout-specific tweaks ===== */
 
 .slidev-layout.cover,
-.slidev-layout.quote,
 .slidev-layout.items,
 .slidev-layout.default,
 .slidev-layout.code,
-.slidev-layout.cards {
+.slidev-layout.blank {
   display: grid;
   grid-template-columns: 1fr;
   place-items: center;
   height: 100%;
 }
 
-.slidev-layout.quote .mumbo-card .mumbo-title {
+.mumbo-title.is-quote {
   font-size: 3.4rem;
   max-width: 22ch;
   quotes: "\201C" "\201D";
 }
 
-.slidev-layout.quote .mumbo-card .mumbo-title::before,
-.slidev-layout.quote .mumbo-card .mumbo-title::after {
+.mumbo-title.is-quote::before,
+.mumbo-title.is-quote::after {
   font-family: Georgia, "Times New Roman", serif;
   opacity: 0.35;
 }
 
-.slidev-layout.quote .mumbo-card .mumbo-title::before {
+.mumbo-title.is-quote::before {
   content: open-quote;
   margin-right: 0.1em;
 }
 
-.slidev-layout.quote .mumbo-card .mumbo-title::after {
+.mumbo-title.is-quote::after {
   content: close-quote;
   margin-left: 0.1em;
 }

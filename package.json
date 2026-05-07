@@ -30,6 +30,7 @@
     "layouts",
     "setup",
     "styles",
+    "types.ts",
     "example.md"
   ],
   "scripts": {

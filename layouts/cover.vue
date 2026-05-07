@@ -1,24 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { CoverProps, LayoutBaseProps, StampProps } from '../types'
 
-const props = withDefaults(defineProps<{
-  class?: string
-  pattern?: string
-  backgroundColor?: string
-  label?: string | number
-  headline?: string
-  subtitle?: string
-  stamp?: string
-  stampSide?: 'tl' | 'tr' | 'bl' | 'br'
-  tag?: string
+const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
   width?: number | string
-}>(), {
-  pattern: 'grid',
-})
-
-const backgroundStyle = computed(() =>
-  props.backgroundColor ? { '--mumbo-bg': props.backgroundColor } : undefined,
-)
+}>()
 
 function asPct(value: typeof props.width): string | null {
   if (value == null) return null
@@ -31,22 +17,24 @@ const cardMaxWidth = computed(() => asPct(props.width) ?? '70%')
 </script>
 
 <template>
-  <div
-    class="slidev-layout cover"
-    :class="[`mumbo-pattern-${pattern}`, $props.class]"
-    :style="backgroundStyle"
+  <Wrapper
+    name="cover"
+    :class="$props.class"
+    :pattern="pattern"
+    :background-color="backgroundColor"
   >
-    <ChapterCard
+    <Cover
       :label="label"
       :headline="headline"
+      :quote="quote"
       :subtitle="subtitle"
       :stamp="stamp"
       :stamp-side="stampSide"
       :tag="tag"
     >
       <slot />
-    </ChapterCard>
-  </div>
+    </Cover>
+  </Wrapper>
 </template>
 
 <style>

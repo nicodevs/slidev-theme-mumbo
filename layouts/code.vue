@@ -1,30 +1,19 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { LayoutBaseProps, StampProps } from '../types'
 
-const props = withDefaults(defineProps<{
-  class?: string
-  pattern?: string
-  backgroundColor?: string
-  stamp?: string
-  stampSide?: 'tl' | 'tr' | 'bl' | 'br'
-}>(), {
-  pattern: 'grid',
-})
-
-const backgroundStyle = computed(() =>
-  props.backgroundColor ? { '--mumbo-bg': props.backgroundColor } : undefined,
-)
+defineProps<LayoutBaseProps & StampProps>()
 </script>
 
 <template>
-  <div
-    class="slidev-layout code"
-    :class="[`mumbo-pattern-${pattern}`, $props.class]"
-    :style="backgroundStyle"
+  <Wrapper
+    name="code"
+    :class="$props.class"
+    :pattern="pattern"
+    :background-color="backgroundColor"
   >
     <PolaroidStamp v-if="stamp" :src="stamp" :side="stampSide" />
     <div class="mumbo-code-slot">
       <slot />
     </div>
-  </div>
+  </Wrapper>
 </template>

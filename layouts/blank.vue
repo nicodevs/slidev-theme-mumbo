@@ -6,14 +6,12 @@ defineProps<LayoutBaseProps & StampProps>()
 
 <template>
   <Wrapper
-    name="default"
+    name="blank"
     :class="$props.class"
     :pattern="pattern"
     :background-color="backgroundColor"
   >
-    <div class="mumbo-card is-content">
-      <PolaroidStamp v-if="stamp" :src="stamp" :side="stampSide" />
-      <slot />
-    </div>
+    <PolaroidStamp v-if="stamp" :src="stamp" :side="stampSide" />
+    <slot />
   </Wrapper>
 </template>

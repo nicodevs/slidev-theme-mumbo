@@ -88,11 +88,11 @@ pattern: grid
 palette: blue
 ---
 
-<MumboCards>
-  <MumboCard accent="#5da9e9">Server-Sent Events</MumboCard>
-  <MumboCard accent="#9b6dff">WebSockets</MumboCard>
-  <MumboCard accent="#ff8a3d">WebRTC</MumboCard>
-</MumboCards>
+<CardsGrid>
+  <Card accent="#5da9e9">Server-Sent Events</Card>
+  <Card accent="#9b6dff">WebSockets</Card>
+  <Card accent="#ff8a3d">WebRTC</Card>
+</CardsGrid>
 
 ---
 layout: code

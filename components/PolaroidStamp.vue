@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { StampSide } from '../types'
+
 defineProps<{
   src?: string
-  side?: 'tl' | 'tr' | 'bl' | 'br'
+  side?: StampSide
 }>()
 </script>
 

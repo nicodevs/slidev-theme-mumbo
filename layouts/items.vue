@@ -1,29 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { CoverProps, LayoutBaseProps, StampProps } from '../types'
 
-const props = withDefaults(defineProps<{
-  class?: string
-  pattern?: string
-  backgroundColor?: string
-  label?: string | number
-  headline?: string
-  subtitle?: string
-  stamp?: string
-  stampSide?: 'tl' | 'tr' | 'bl' | 'br'
-}>(), {
-  pattern: 'dots',
-})
-
-const backgroundStyle = computed(() =>
-  props.backgroundColor ? { '--mumbo-bg': props.backgroundColor } : undefined,
-)
+defineProps<LayoutBaseProps & StampProps & CoverProps>()
 </script>
 
 <template>
-  <div
-    class="slidev-layout items"
-    :class="[`mumbo-pattern-${pattern}`, $props.class]"
-    :style="backgroundStyle"
+  <Wrapper
+    name="items"
+    :class="$props.class"
+    :pattern="pattern || 'dots'"
+    :background-color="backgroundColor"
   >
     <div class="mumbo-card is-content">
       <PolaroidStamp v-if="stamp" :src="stamp" :side="stampSide" />
@@ -34,5 +20,5 @@ const backgroundStyle = computed(() =>
       </div>
       <div v-if="subtitle" class="mumbo-subtitle">{{ subtitle }}</div>
     </div>
-  </div>
+  </Wrapper>
 </template>
