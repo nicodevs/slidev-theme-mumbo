@@ -1,8 +1,10 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+import { computed } from 'vue'
+
+const props = withDefaults(defineProps<{
   class?: string
   pattern?: string
-  palette?: string
+  backgroundColor?: string
   label?: string | number
   headline?: string
   subtitle?: string
@@ -11,14 +13,18 @@ withDefaults(defineProps<{
   tag?: string
 }>(), {
   pattern: 'grid',
-  palette: 'sage',
 })
+
+const backgroundStyle = computed(() =>
+  props.backgroundColor ? { '--mumbo-bg': props.backgroundColor } : undefined,
+)
 </script>
 
 <template>
   <div
     class="slidev-layout quote"
-    :class="[`mumbo-pattern-${pattern}`, `mumbo-palette-${palette}`, $props.class]"
+    :class="[`mumbo-pattern-${pattern}`, $props.class]"
+    :style="backgroundStyle"
   >
     <ChapterCard
       :label="label"

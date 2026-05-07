@@ -4,7 +4,7 @@ import { computed } from 'vue'
 const props = withDefaults(defineProps<{
   class?: string
   pattern?: string
-  palette?: string
+  backgroundColor?: string
   label?: string | number
   headline?: string
   subtitle?: string
@@ -14,8 +14,11 @@ const props = withDefaults(defineProps<{
   width?: number | string
 }>(), {
   pattern: 'grid',
-  palette: 'sage',
 })
+
+const backgroundStyle = computed(() =>
+  props.backgroundColor ? { '--mumbo-bg': props.backgroundColor } : undefined,
+)
 
 function asPct(value: typeof props.width): string | null {
   if (value == null) return null
@@ -30,7 +33,8 @@ const cardMaxWidth = computed(() => asPct(props.width) ?? '70%')
 <template>
   <div
     class="slidev-layout cover"
-    :class="[`mumbo-pattern-${pattern}`, `mumbo-palette-${palette}`, $props.class]"
+    :class="[`mumbo-pattern-${pattern}`, $props.class]"
+    :style="backgroundStyle"
   >
     <ChapterCard
       :label="label"

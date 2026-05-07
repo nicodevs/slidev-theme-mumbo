@@ -435,7 +435,7 @@
   height: 2.4rem;
   display: grid;
   place-items: center;
-  background: var(--mumbo-accent);
+  background: var(--mumbo-bg);
   color: #fff;
   border-radius: 50%;
   font-weight: 800;

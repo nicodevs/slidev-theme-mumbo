@@ -1,51 +1,12 @@
-/* ===== Mumbo: Backgrounds (palette + pattern) ===== */
+/* ===== Mumbo: Backgrounds (pattern + bg color) ===== */
 
-
-/* ---- Palettes: pattern base + accent ---- */
-
-.mumbo-palette-sage {
+.slidev-layout {
   --mumbo-bg: #88a989;
-  --mumbo-accent: #5e8062;
-  --mumbo-line: rgba(255, 255, 255, 0.22);
-}
-
-.mumbo-palette-forest {
-  --mumbo-bg: #4a6b48;
-  --mumbo-accent: #2e4a2c;
-  --mumbo-line: rgba(255, 255, 255, 0.18);
-}
-
-.mumbo-palette-blue {
-  --mumbo-bg: #b3cde4;
-  --mumbo-accent: #4d7eb3;
-  --mumbo-line: rgba(255, 255, 255, 0.45);
-}
-
-.mumbo-palette-red {
-  --mumbo-bg: #b8332b;
-  --mumbo-accent: #8a1f1c;
-  --mumbo-line: rgba(255, 255, 255, 0.18);
-}
-
-.mumbo-palette-kraft {
-  --mumbo-bg: #d2a577;
-  --mumbo-accent: #a67148;
-  --mumbo-line: rgba(255, 255, 255, 0.22);
-}
-
-.mumbo-palette-pink {
-  --mumbo-bg: #f0c2d4;
-  --mumbo-accent: #c0426d;
-  --mumbo-line: rgba(255, 255, 255, 0.5);
-}
-
-.mumbo-palette-amber {
-  --mumbo-bg: #f2a93b;
-  --mumbo-accent: #b86b14;
+  --mumbo-accent: rgba(0, 0, 0, 0.2);
   --mumbo-line: rgba(255, 255, 255, 0.3);
 }
 
-/* ---- Patterns: parameterized by the palette vars ---- */
+/* ---- Patterns: parameterized by the bg vars ---- */
 
 .mumbo-pattern-grid {
   background-color: var(--mumbo-bg);
