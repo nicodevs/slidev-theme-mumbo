@@ -1,11 +1,16 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   title?: string
+  size?: string | number
 }>()
+
+const sizeStyle = props.size != null
+  ? { '--mumbo-snippet-size': typeof props.size === 'number' ? `${props.size}em` : props.size }
+  : undefined
 </script>
 
 <template>
-  <div class="mumbo-code-window">
+  <div class="mumbo-code-window" :style="sizeStyle">
     <div class="mumbo-code-window-bar">
       <span class="mumbo-code-window-dot is-close" />
       <span class="mumbo-code-window-dot is-min" />

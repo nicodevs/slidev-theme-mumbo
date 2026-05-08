@@ -7,6 +7,7 @@ const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
   cover?: CoverConfig
   cards?: CardItem[]
   snippet?: string
+  snippetSize?: string | number
   items?: string[]
 }>()
 
@@ -19,7 +20,7 @@ const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.
     <Cover v-if="cover" v-bind="cover">
       <slot />
     </Cover>
-    <CodeWindow v-else-if="snippet !== undefined" :title="snippet">
+    <CodeWindow v-else-if="snippet !== undefined" :title="snippet" :size="snippetSize">
       <slot />
     </CodeWindow>
     <CardsGrid v-else-if="cards">

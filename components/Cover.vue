@@ -20,6 +20,11 @@ const cardWidth = computed(() => asPct(props.width) ?? 'fit-content')
 const cardMaxWidth = computed(() => asPct(props.width) ?? (props.items ? '80%' : '70%'))
 
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
+
+const parsedItems = computed(() => props.items?.map((raw) => {
+  const m = raw.match(/^\(([^)]+)\)\s*(.*)$/)
+  return m ? { marker: m[1], text: m[2] } : { marker: null, text: raw }
+}))
 </script>
 
 <template>
@@ -35,10 +40,10 @@ const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.
     <div v-if="label" class="mumbo-label">{{ label }}</div>
     <h1 v-if="quote" class="mumbo-title is-quote">{{ quote }}</h1>
     <h1 v-else-if="headline" class="mumbo-title">{{ headline }}</h1>
-    <div v-if="items" class="mumbo-items">
+    <div v-if="parsedItems" class="mumbo-items">
       <ul>
-        <li v-for="(item, i) in items" :key="i">
-          <v-click>{{ item }}</v-click>
+        <li v-for="(item, i) in parsedItems" :key="i" :data-marker="item.marker || null">
+          <v-click>{{ item.text }}</v-click>
         </li>
       </ul>
     </div>
