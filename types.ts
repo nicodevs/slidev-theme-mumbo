@@ -13,7 +13,7 @@ export interface LayoutBaseProps {
 }
 
 export interface StampProps {
-  stamp?: StampConfig
+  stamp?: StampConfig | StampConfig[]
 }
 
 export interface CoverProps {

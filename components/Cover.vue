@@ -17,7 +17,9 @@ function asPct(value: typeof props.width): string | null {
 }
 
 const cardWidth = computed(() => asPct(props.width) ?? 'fit-content')
-const cardMaxWidth = computed(() => asPct(props.width) ?? '70%')
+const cardMaxWidth = computed(() => asPct(props.width) ?? (props.items ? '80%' : '70%'))
+
+const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
 </script>
 
 <template>
@@ -28,7 +30,7 @@ const cardMaxWidth = computed(() => asPct(props.width) ?? '70%')
       'is-items': items,
     }"
   >
-    <PolaroidStamp v-if="stamp" v-bind="stamp" />
+    <PolaroidStamp v-for="(s, i) in stamps" :key="i" v-bind="s" />
     <div v-if="tag" class="mumbo-tape">{{ tag }}</div>
     <div v-if="label" class="mumbo-label">{{ label }}</div>
     <h1 v-if="quote" class="mumbo-title is-quote">{{ quote }}</h1>
