@@ -60,9 +60,9 @@ For a chapter / hero slide, set the fields under a nested `cover:` object:
 ---
 cover:
   label: Chapter One              # small label above the title
-  headline: Silly Prank War       # large title
+  headline: Lorem Ipsum Dolor     # large title
   quote: Every site is real-time… # alternate title styled with curly quotes
-  subtitle: Hermitcraft S11       # small label below the title
+  subtitle: Sit Amet              # small label below the title
   tag: INTRO                      # masking-tape badge across the card
   width: 85                       # card width as a percent
   stamp:                          # polaroid inside the card

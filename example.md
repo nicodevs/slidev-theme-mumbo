@@ -44,7 +44,7 @@ pattern: gingham
 palette: blue
 cover:
   label: Statement
-  headline: Kinda Hard to Do With a Wet Keyboard
+  headline: Alpha Bravo Charlie Delta
   subtitle: But we ship anyway
   stamp:
     url: https://vuejs.org/images/logo.png
@@ -176,7 +176,7 @@ pattern: stripes
 palette: pink
 cover:
   label: End
-  headline: Pearlescent Pinky Bashing
+  headline: Lorem Ipsum Finale
   subtitle: That's a wrap
   stamp:
     url: https://vuejs.org/images/logo.png
