@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import Cover from '../components/Cover.vue'
-import type { CardItem, CoverConfig, CoverProps, LayoutBaseProps, StampProps } from '../types'
+import type { CardItem, CoverConfig, CoverProps, LayoutBaseProps, StampProps, StickerItem } from '../types'
 
 const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
   cover?: CoverConfig
@@ -9,6 +9,7 @@ const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
   snippet?: string
   snippetSize?: string | number
   items?: string[]
+  stickers?: StickerItem[]
 }>()
 
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
@@ -26,6 +27,7 @@ const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.
     <CardsGrid v-else-if="cards">
       <Card v-for="(card, i) in cards" :key="i" v-bind="card" />
     </CardsGrid>
+    <StickersWall v-else-if="stickers" :items="stickers" />
     <Cover
       v-else-if="items"
       variant="content"

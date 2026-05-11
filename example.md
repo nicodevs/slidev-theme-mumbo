@@ -110,6 +110,23 @@ cards:
 
 ---
 layout: default
+pattern: dots
+palette: blue
+stickers:
+  - text: 😱 SDP
+    rotation: -6
+  - text: 🧊 ICE
+    rotation: 4
+  - text: ↩️ TURN
+    rotation: -3
+  - text: 🥶 STUN
+    rotation: 5
+  - text: 🍨 ICE Trickle
+    rotation: -4
+---
+
+---
+layout: default
 pattern: grid
 palette: blue
 snippet: chat.vue

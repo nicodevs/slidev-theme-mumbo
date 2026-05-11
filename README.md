@@ -20,9 +20,9 @@ npm install slidev-theme-mumbo
 
 ## Layouts
 
-| Layout    | Use for                                                                            |
-| --------- | ---------------------------------------------------------------------------------- |
-| `default` | Universal layout — `cover:`, `snippet:`, `cards:`, `items:`, or a content card     |
+| Layout    | Use for                                                                                    |
+| --------- | ------------------------------------------------------------------------------------------ |
+| `default` | Universal layout — `cover:`, `snippet:`, `cards:`, `items:`, `stickers:`, or a content card |
 
 ## Frontmatter
 
@@ -96,6 +96,7 @@ Auto-imported and available inside any slide:
 | `<CodeWindow>`  | Mac-style window frame around a code block. Prop: `title`.           |
 | `<Cover>`       | The cream chapter card. Use directly to compose custom layouts.      |
 | `<PolaroidStamp>` | Polaroid-framed image. Props: `url`, `position`.                   |
+| `<StickersWall>` | Centered flex-wrap wall of rotated outlined "stickers". Prop: `items`. |
 | `<Wrapper>`     | Internal layout wrapper (pattern + background). Used by all layouts. |
 
 Example — imperative form (slot content):
@@ -152,7 +153,23 @@ function poll() { /* ... */ }
 ```
 ````
 
-If `items` is set, a list slide is rendered (top-level `headline`/`label`/`subtitle` decorate it; each item auto-wraps in `<v-click>`). If `cards` is set, the cards grid replaces the slot. With none of these set, the slot renders inside a cream content card on the patterned background.
+If `items` is set, a list slide is rendered (top-level `headline`/`label`/`subtitle` decorate it; each item auto-wraps in `<v-click>`). If `cards` is set, the cards grid replaces the slot. If `stickers` is set, a wall of rotated chunky-outlined stickers is rendered:
+
+```yaml
+---
+pattern: dots
+backgroundColor: '#7ad7d7'
+stickers:
+  - text: 🔥 Foo
+    rotation: -6              # degrees (number) or any CSS rotate value
+  - text: 😄 Bar
+    rotation: 4
+  - text: ⭐ Baz
+    rotation: '0.02turn'
+---
+```
+
+With none of these set, the slot renders inside a cream content card on the patterned background.
 
 ## Types
 
@@ -167,6 +184,7 @@ import type {
   CoverProps,       // label, headline, quote, subtitle, tag
   CoverConfig,      // CoverProps + StampProps + width
   CardItem,         // { text, label?, color? }
+  StickerItem,      // { text, rotation? }
 } from 'slidev-theme-mumbo/types'
 ```
 

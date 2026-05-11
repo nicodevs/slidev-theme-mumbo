@@ -33,3 +33,8 @@ export interface CardItem {
   label?: string | number
   color?: string
 }
+
+export interface StickerItem {
+  text: string
+  rotation?: string | number
+}
