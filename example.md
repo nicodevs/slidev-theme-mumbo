@@ -2,7 +2,6 @@
 theme: ./
 layout: default
 pattern: grid
-palette: sage
 cover:
   label: MadVue 2026
   headline: VUE REAL-TIME APPS
@@ -15,7 +14,6 @@ cover:
 ---
 layout: default
 pattern: dots
-palette: kraft
 cover:
   label: Intro
   headline: Hi, I'm Nico
@@ -28,7 +26,6 @@ cover:
 ---
 layout: default
 pattern: stripes
-palette: forest
 cover:
   label: Section
   headline: Time to Start Building
@@ -41,7 +38,6 @@ cover:
 ---
 layout: default
 pattern: gingham
-palette: blue
 cover:
   label: Statement
   headline: Alpha Bravo Charlie Delta
@@ -54,7 +50,6 @@ cover:
 ---
 layout: default
 pattern: grid
-palette: red
 cover:
   label: Fact
   headline: 42%
@@ -67,7 +62,6 @@ cover:
 ---
 layout: default
 pattern: diagonal
-palette: kraft
 cover:
   label: Quote
   headline: Good Design Is As Little Design As Possible
@@ -82,7 +76,6 @@ layout: default
 label: Items
 headline: What's in the Box
 pattern: dots
-palette: forest
 stamp:
   url: https://vuejs.org/images/logo.png
   position: tr
@@ -98,7 +91,6 @@ items:
 ---
 layout: default
 pattern: grid
-palette: blue
 cards:
   - text: Server-Sent Events
     color: '#5da9e9'
@@ -111,7 +103,6 @@ cards:
 ---
 layout: default
 pattern: dots
-palette: blue
 stickers:
   - text: 😱 SDP
     rotation: -6
@@ -128,7 +119,6 @@ stickers:
 ---
 layout: default
 pattern: grid
-palette: blue
 snippet: chat.vue
 ---
 
@@ -190,7 +180,6 @@ function submit() {
 ---
 layout: default
 pattern: stripes
-palette: pink
 cover:
   label: End
   headline: Lorem Ipsum Finale
@@ -203,7 +192,6 @@ cover:
 ---
 layout: default
 pattern: dots
-palette: sage
 ---
 
 # Default
