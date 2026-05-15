@@ -13,11 +13,13 @@ const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
 }>()
 
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
+const cardHostsStamp = computed(() => !props.cover && !props.snippet && !props.cards && !props.stickers)
+const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
 </script>
 
 <template>
   <Wrapper v-bind="$props" name="default">
-    <PolaroidStamp v-for="(s, i) in stamps" :key="i" v-bind="s" />
+    <PolaroidStamp v-for="(s, i) in wrapperStamps" :key="i" v-bind="s" />
     <Cover v-if="cover" v-bind="cover">
       <slot />
     </Cover>
@@ -35,8 +37,9 @@ const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.
       :headline="headline"
       :subtitle="subtitle"
       :items="items"
+      :stamp="stamp"
     />
-    <Cover v-else variant="content">
+    <Cover v-else variant="content" :stamp="stamp">
       <slot />
     </Cover>
   </Wrapper>

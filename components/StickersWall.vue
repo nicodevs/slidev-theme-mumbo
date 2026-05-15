@@ -11,7 +11,9 @@ const resolved = computed(() => props.items.map((item) => {
   const url = item.url && item.url.startsWith('/')
     ? `${import.meta.env.BASE_URL}${item.url.slice(1)}`
     : item.url
-  return { ...item, url }
+  const icon = item.icon
+    || (!item.url && typeof item.text === 'string' && item.text.includes(':') ? item.text : undefined)
+  return { ...item, url, icon }
 }))
 
 function stickerStyle(item: StickerItem, i: number) {
