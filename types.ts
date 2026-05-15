@@ -1,7 +1,9 @@
 export type StampSide = 'tl' | 'tr' | 'bl' | 'br'
 
 export interface StampConfig {
-  url: string
+  url?: string
+  emoji?: string
+  icon?: string
   position?: StampSide
 }
 

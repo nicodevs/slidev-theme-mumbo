@@ -19,7 +19,7 @@ cover:
   headline: Hi, I'm Nico
   subtitle: Brief speaker intro
   stamp:
-    url: https://vuejs.org/images/logo.png
+    emoji: 👋
     position: tr
 ---
 
@@ -67,7 +67,7 @@ cover:
   headline: Good Design Is As Little Design As Possible
   subtitle: — Dieter Rams
   stamp:
-    url: https://vuejs.org/images/logo.png
+    icon: mdi:format-quote-close
     position: tr
 ---
 

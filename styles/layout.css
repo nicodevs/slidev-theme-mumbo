@@ -220,6 +220,20 @@
   display: block;
 }
 
+.mumbo-polaroid-icon,
+.mumbo-polaroid-emoji {
+  position: relative;
+  z-index: 1;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--mumbo-ink);
+}
+
+.mumbo-polaroid-icon {
+  width: 1em;
+  height: 1em;
+}
+
 .mumbo-polaroid.tl { top: -34px; left: -34px; transform: rotate(-7deg); }
 .mumbo-polaroid.tr { top: -34px; right: -34px; transform: rotate(6deg); }
 .mumbo-polaroid.bl { bottom: -34px; left: -34px; transform: rotate(-5deg); }
