@@ -93,10 +93,13 @@ layout: default
 pattern: grid
 cards:
   - text: Server-Sent Events
+    label: mdi:broadcast
     color: '#5da9e9'
   - text: WebSockets
+    label: mdi:lan-connect
     color: '#9b6dff'
   - text: WebRTC
+    label: mdi:video
     color: '#ff8a3d'
 ---
 

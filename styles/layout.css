@@ -351,6 +351,26 @@
   margin-bottom: 0.85rem;
 }
 
+.mumbo-cards-icon {
+  display: block;
+  color: var(--mumbo-card-color, var(--mumbo-accent));
+  font-size: 3rem;
+  width: 1em;
+  height: 1em;
+  margin-bottom: 0.85rem;
+}
+
+.mumbo-cards-item:nth-child(1):nth-last-child(2) .mumbo-cards-icon,
+.mumbo-cards-item:nth-child(2):nth-last-child(1) .mumbo-cards-icon {
+  font-size: 3.75rem;
+}
+
+.mumbo-cards-item:only-child .mumbo-cards-icon {
+  font-size: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mumbo-cards-item::after {
   content: "";
   position: absolute;

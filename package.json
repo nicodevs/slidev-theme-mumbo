@@ -40,6 +40,7 @@
     "screenshot": "slidev export example.md --format png"
   },
   "dependencies": {
+    "@iconify/vue": "^4.3.0",
     "@slidev/types": "^52.14.1"
   },
   "devDependencies": {
