@@ -29,7 +29,7 @@ const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
     <CardsGrid v-else-if="cards">
       <Card v-for="(card, i) in cards" :key="i" v-bind="card" />
     </CardsGrid>
-    <StickersWall v-else-if="stickers" :items="stickers" />
+    <StickersWall v-else-if="stickers" :items="stickers" :headline="headline" />
     <Cover
       v-else-if="items"
       variant="content"

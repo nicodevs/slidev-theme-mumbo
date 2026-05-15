@@ -6,6 +6,7 @@ const props = defineProps<{
   color?: string
   label?: string | number
   text?: string
+  subtext?: string
 }>()
 
 const isIcon = computed(() => typeof props.label === 'string' && props.label.includes(':'))
@@ -20,5 +21,6 @@ const isIcon = computed(() => typeof props.label === 'string' && props.label.inc
   >
     <Icon v-if="isIcon" :icon="label as string" class="mumbo-cards-icon" />
     <slot>{{ text }}</slot>
+    <div v-if="subtext" class="mumbo-cards-subtext">{{ subtext }}</div>
   </div>
 </template>

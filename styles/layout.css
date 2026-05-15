@@ -385,6 +385,15 @@
   margin-right: auto;
 }
 
+.mumbo-cards-subtext {
+  margin-top: 0.6rem;
+  color: var(--mumbo-card-color, var(--mumbo-accent));
+  font-weight: 600;
+  font-size: 0.55em;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
 .mumbo-cards-item::after {
   content: "";
   position: absolute;
@@ -523,6 +532,24 @@
 }
 
 /* ===== Stickers wall ===== */
+
+.mumbo-stickers-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mumbo-stickers-headline {
+  text-align: center;
+  font-size: 4.5rem;
+  line-height: 0.9;
+  margin: 0 0 2rem;
+  padding: 0 1rem;
+  color: #111;
+  -webkit-text-stroke: 0.25em #fff;
+  paint-order: stroke fill;
+}
 
 .mumbo-stickers-wall {
   display: flex;

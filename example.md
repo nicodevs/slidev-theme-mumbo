@@ -93,12 +93,15 @@ layout: default
 pattern: grid
 cards:
   - text: Server-Sent Events
+    subtext: One-way push from server
     label: mdi:broadcast
     color: '#5da9e9'
   - text: WebSockets
+    subtext: Full-duplex over TCP
     label: mdi:lan-connect
     color: '#9b6dff'
   - text: WebRTC
+    subtext: Peer-to-peer media & data
     label: mdi:video
     color: '#ff8a3d'
 ---
@@ -106,6 +109,7 @@ cards:
 ---
 layout: default
 pattern: dots
+headline: Works in every browser
 stickers:
   - icon: logos:chrome
     rotation: -6

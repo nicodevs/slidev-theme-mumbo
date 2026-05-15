@@ -32,6 +32,7 @@ export interface CoverConfig extends CoverProps, StampProps {
 
 export interface CardItem {
   text: string
+  subtext?: string
   label?: string | number
   color?: string
 }

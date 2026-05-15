@@ -5,6 +5,7 @@ import type { StickerItem } from '../types'
 
 const props = defineProps<{
   items: StickerItem[]
+  headline?: string
 }>()
 
 const resolved = computed(() => props.items.map((item) => {
@@ -34,16 +35,19 @@ function stickerClass(item: StickerItem) {
 </script>
 
 <template>
-  <div class="mumbo-stickers-wall">
-    <span
-      v-for="(item, i) in resolved"
-      :key="i"
-      :class="stickerClass(item)"
-      :style="stickerStyle(item, i)"
-    >
-      <img v-if="item.url" :src="item.url" alt="" />
-      <Icon v-else-if="item.icon" :icon="item.icon" />
-      <template v-else>{{ item.text }}</template>
-    </span>
+  <div class="mumbo-stickers-section">
+    <h1 v-if="headline" class="mumbo-title mumbo-stickers-headline">{{ headline }}</h1>
+    <div class="mumbo-stickers-wall">
+      <span
+        v-for="(item, i) in resolved"
+        :key="i"
+        :class="stickerClass(item)"
+        :style="stickerStyle(item, i)"
+      >
+        <img v-if="item.url" :src="item.url" alt="" />
+        <Icon v-else-if="item.icon" :icon="item.icon" />
+        <template v-else>{{ item.text }}</template>
+      </span>
+    </div>
   </div>
 </template>

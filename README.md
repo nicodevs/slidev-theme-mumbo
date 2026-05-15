@@ -185,7 +185,7 @@ import type {
   StampSide,        // 'tl' | 'tr' | 'bl' | 'br'
   CoverProps,       // label, headline, quote, subtitle, tag
   CoverConfig,      // CoverProps + StampProps + width
-  CardItem,         // { text, label?, color? } — label can be an Iconify name like "mdi:home"
+  CardItem,         // { text, subtext?, label?, color? } — label can be an Iconify name like "mdi:home"
   StickerItem,      // { text?, icon?, url?, rotation? }
 } from 'slidev-theme-mumbo/types'
 ```
