@@ -160,11 +160,13 @@ If `items` is set, a list slide is rendered (top-level `headline`/`label`/`subti
 pattern: dots
 backgroundColor: '#7ad7d7'
 stickers:
-  - text: 🔥 Foo
+  - icon: logos:chrome
     rotation: -6              # degrees (number) or any CSS rotate value
-  - text: 😄 Bar
+  - icon: logos:firefox
     rotation: 4
-  - text: ⭐ Baz
+  - icon: logos:microsoft-edge
+    rotation: -3
+  - icon: logos:safari
     rotation: '0.02turn'
 ---
 ```
@@ -179,12 +181,12 @@ The theme exports prop types you can reuse when building custom components:
 import type {
   LayoutBaseProps,  // class, pattern, backgroundColor, accentColor
   StampProps,       // stamp
-  StampConfig,      // { url, position? }
+  StampConfig,      // { url?, emoji?, icon?, position? }
   StampSide,        // 'tl' | 'tr' | 'bl' | 'br'
   CoverProps,       // label, headline, quote, subtitle, tag
   CoverConfig,      // CoverProps + StampProps + width
-  CardItem,         // { text, label?, color? }
-  StickerItem,      // { text, rotation? }
+  CardItem,         // { text, label?, color? } — label can be an Iconify name like "mdi:home"
+  StickerItem,      // { text?, icon?, url?, rotation? }
 } from 'slidev-theme-mumbo/types'
 ```
 

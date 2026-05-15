@@ -1,9 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { Icon } from '@iconify/vue'
 import type { StickerItem } from '../types'
 
 const props = defineProps<{
   items: StickerItem[]
 }>()
+
+const resolved = computed(() => props.items.map((item) => {
+  const url = item.url && item.url.startsWith('/')
+    ? `${import.meta.env.BASE_URL}${item.url.slice(1)}`
+    : item.url
+  return { ...item, url }
+}))
 
 function stickerStyle(item: StickerItem, i: number) {
   const value = item.rotation == null
@@ -14,15 +23,25 @@ function stickerStyle(item: StickerItem, i: number) {
     animationDelay: `${0.08 + i * 0.06}s`,
   }
 }
+
+function stickerClass(item: StickerItem) {
+  if (item.url) return 'mumbo-sticker is-image'
+  if (item.icon) return 'mumbo-sticker is-icon'
+  return 'mumbo-sticker'
+}
 </script>
 
 <template>
   <div class="mumbo-stickers-wall">
     <span
-      v-for="(item, i) in props.items"
+      v-for="(item, i) in resolved"
       :key="i"
-      class="mumbo-sticker"
+      :class="stickerClass(item)"
       :style="stickerStyle(item, i)"
-    >{{ item.text }}</span>
+    >
+      <img v-if="item.url" :src="item.url" alt="" />
+      <Icon v-else-if="item.icon" :icon="item.icon" />
+      <template v-else>{{ item.text }}</template>
+    </span>
   </div>
 </template>

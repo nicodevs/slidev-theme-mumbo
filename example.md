@@ -107,16 +107,14 @@ cards:
 layout: default
 pattern: dots
 stickers:
-  - text: 😱 SDP
+  - icon: logos:chrome
     rotation: -6
-  - text: 🧊 ICE
+  - icon: logos:firefox
     rotation: 4
-  - text: ↩️ TURN
+  - icon: logos:microsoft-edge
     rotation: -3
-  - text: 🥶 STUN
+  - icon: logos:safari
     rotation: 5
-  - text: 🍨 ICE Trickle
-    rotation: -4
 ---
 
 ---

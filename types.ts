@@ -37,6 +37,8 @@ export interface CardItem {
 }
 
 export interface StickerItem {
-  text: string
+  text?: string
+  icon?: string
+  url?: string
   rotation?: string | number
 }

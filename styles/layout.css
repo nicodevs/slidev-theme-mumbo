@@ -552,6 +552,31 @@
   animation: mumbo-sticker-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.mumbo-sticker.is-icon,
+.mumbo-sticker.is-image {
+  -webkit-text-stroke: 0;
+  color: #111;
+  line-height: 0;
+  filter:
+    drop-shadow(0 0 0.18em #fff)
+    drop-shadow(0 0 0.18em #fff)
+    drop-shadow(0 0 0.18em #fff)
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.22));
+}
+
+.mumbo-sticker.is-icon > svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.mumbo-sticker.is-image > img {
+  width: 1.4em;
+  height: 1.4em;
+  object-fit: contain;
+  display: block;
+}
+
 @keyframes mumbo-sticker-in {
   from {
     opacity: 0;
