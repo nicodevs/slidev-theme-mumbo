@@ -107,6 +107,40 @@
   line-height: 1.6 !important;
 }
 
+/* ===== Tables ===== */
+
+.slidev-layout th,
+.slidev-layout td {
+  font-size: 1.6rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.slidev-layout th:first-child,
+.slidev-layout td:first-child {
+  padding-left: 0;
+}
+
+.slidev-layout th:last-child,
+.slidev-layout td:last-child {
+  padding-right: 0;
+}
+
+.slidev-layout th {
+  font-weight: 800;
+}
+
+.slidev-layout th:last-child,
+.slidev-layout td:last-child {
+  text-align: right;
+}
+
+.slidev-layout tbody tr:last-child,
+.slidev-layout tbody tr:last-child td,
+.slidev-layout tbody tr:last-child th {
+  border-bottom: none !important;
+}
+
 /* ===== The cream "card" ===== */
 
 .mumbo-card {
