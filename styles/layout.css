@@ -268,10 +268,10 @@
   height: 1em;
 }
 
-.mumbo-polaroid.tl { top: -34px; left: -34px; transform: rotate(-7deg); }
-.mumbo-polaroid.tr { top: -34px; right: -34px; transform: rotate(6deg); }
-.mumbo-polaroid.bl { bottom: -34px; left: -34px; transform: rotate(-5deg); }
-.mumbo-polaroid.br { bottom: -34px; right: -34px; transform: rotate(8deg); }
+.mumbo-polaroid.tl { top: calc(-1 * var(--mumbo-stamp-inset, 34px)); left: calc(-1 * var(--mumbo-stamp-inset, 34px)); transform: rotate(-7deg); }
+.mumbo-polaroid.tr { top: calc(-1 * var(--mumbo-stamp-inset, 34px)); right: calc(-1 * var(--mumbo-stamp-inset, 34px)); transform: rotate(6deg); }
+.mumbo-polaroid.bl { bottom: calc(-1 * var(--mumbo-stamp-inset, 34px)); left: calc(-1 * var(--mumbo-stamp-inset, 34px)); transform: rotate(-5deg); }
+.mumbo-polaroid.br { bottom: calc(-1 * var(--mumbo-stamp-inset, 34px)); right: calc(-1 * var(--mumbo-stamp-inset, 34px)); transform: rotate(8deg); }
 
 /* ===== Layout-specific tweaks ===== */
 

@@ -4,7 +4,9 @@ export interface StampConfig {
   url?: string
   emoji?: string
   icon?: string
+  color?: string
   position?: StampSide
+  inset?: number | string
 }
 
 export interface LayoutBaseProps {
