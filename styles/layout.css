@@ -501,6 +501,11 @@
   font-size: 1.6rem;
 }
 
+.mumbo-items strong,
+.mumbo-items em {
+  color: inherit;
+}
+
 /* ===== Page Number ===== */
 
 .slidev-page-number {

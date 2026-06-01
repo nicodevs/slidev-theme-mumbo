@@ -21,9 +21,21 @@ const cardMaxWidth = computed(() => asPct(props.width) ?? (props.items ? '80%' :
 
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
 
+function inlineMarkdown(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+}
+
 const parsedItems = computed(() => props.items?.map((raw) => {
   const m = raw.match(/^\(([^)]+)\)\s*(.*)$/)
-  return m ? { marker: m[1], text: m[2] } : { marker: null, text: raw }
+  const { marker, text } = m ? { marker: m[1], text: m[2] } : { marker: null, text: raw }
+  return { marker, html: inlineMarkdown(text) }
 }))
 </script>
 
@@ -43,7 +55,7 @@ const parsedItems = computed(() => props.items?.map((raw) => {
     <div v-if="parsedItems" class="mumbo-items">
       <ul>
         <li v-for="(item, i) in parsedItems" :key="i" :data-marker="item.marker || null">
-          <v-click>{{ item.text }}</v-click>
+          <v-click><span v-html="item.html" /></v-click>
         </li>
       </ul>
     </div>
