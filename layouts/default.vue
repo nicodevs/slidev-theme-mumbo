@@ -13,7 +13,8 @@ const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
 }>()
 
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
-const cardHostsStamp = computed(() => !props.cover && !props.snippet && !props.cards && !props.stickers)
+const isSingleCard = computed(() => Array.isArray(props.cards) && props.cards.length === 1)
+const cardHostsStamp = computed(() => (!props.cover && !props.snippet && !props.cards && !props.stickers) || isSingleCard.value)
 const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
 </script>
 
@@ -27,7 +28,12 @@ const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
       <slot />
     </CodeWindow>
     <CardsGrid v-else-if="cards">
-      <Card v-for="(card, i) in cards" :key="i" v-bind="card" />
+      <Card
+        v-for="(card, i) in cards"
+        :key="i"
+        v-bind="card"
+        :stamp="isSingleCard ? stamp : undefined"
+      />
     </CardsGrid>
     <StickersWall v-else-if="stickers" :items="stickers" :headline="headline" />
     <Cover

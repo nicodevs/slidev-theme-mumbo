@@ -316,16 +316,19 @@
 
 .mumbo-cards-item {
   position: relative;
+  display: flex;
+  flex-direction: column;
   flex: 0 0 calc((100% - 4rem) / 3);
   min-width: 18rem;
   min-height: 13rem;
   background: var(--mumbo-card);
   border-radius: 16px;
-  padding: 2rem 2rem 3rem;
+  padding: 2rem 2rem 2.75rem;
   font-weight: 700;
-  font-size: 1.85rem;
-  line-height: 1.2;
+  font-size: 1.6rem;
+  line-height: 1;
   color: var(--mumbo-ink);
+  overflow-wrap: break-word;
   box-shadow: var(--mumbo-card-shadow);
   opacity: 0;
   transform: translateY(20px);
@@ -337,8 +340,8 @@
 .mumbo-cards-item:nth-child(2):nth-last-child(1) {
   flex: 0 0 calc((100% - 1.5rem) / 2);
   min-height: 16rem;
-  font-size: 2.4rem;
-  padding: 2.5rem 2.5rem 3.5rem;
+  font-size: 2.1rem;
+  padding: 2.5rem 2.5rem 3.25rem;
 }
 
 .mumbo-cards-item:nth-child(1):nth-last-child(2)[data-label]::before,
@@ -361,10 +364,13 @@
   width: 50%;
   min-width: 24rem;
   max-width: 44rem;
-  height: 22rem;
-  padding: 3.25rem 3.5rem 4.5rem;
-  font-size: 3.4rem;
+  min-height: 22rem;
+  height: auto;
+  padding: 3.25rem 3.5rem 4.25rem;
+  font-size: 3rem;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .mumbo-cards-item:only-child[data-label]::before {

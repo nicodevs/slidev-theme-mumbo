@@ -36,6 +36,7 @@ export interface CardItem {
   text: string
   subtext?: string
   label?: string | number
+  icon?: string
   color?: string
 }
 
