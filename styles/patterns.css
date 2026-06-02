@@ -22,7 +22,7 @@
   background-image: linear-gradient(
     90deg,
     transparent 50%,
-    var(--mumbo-line) 50%
+    rgba(255, 255, 255, 0.2) 50%
   );
   background-size: calc(100% / 6) 100%;
   background-position: center;
@@ -46,7 +46,7 @@
   background-image: repeating-linear-gradient(
     45deg,
     var(--mumbo-bg) 0 30px,
-    var(--mumbo-pattern) 30px 60px
+    rgba(255, 255, 255, 0.2) 30px 60px
   );
 }
 
