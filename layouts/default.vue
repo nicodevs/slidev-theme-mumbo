@@ -6,6 +6,7 @@ import type { CardItem, CoverConfig, CoverProps, LayoutBaseProps, StampProps, St
 const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
   cover?: CoverConfig
   cards?: CardItem[]
+  reveal?: boolean
   snippet?: string
   snippetSize?: string | number
   items?: string[]
@@ -27,13 +28,20 @@ const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
     <CodeWindow v-else-if="snippet !== undefined" :title="snippet" :size="snippetSize">
       <slot />
     </CodeWindow>
-    <CardsGrid v-else-if="cards">
-      <Card
-        v-for="(card, i) in cards"
-        :key="i"
-        v-bind="card"
-        :stamp="isSingleCard ? stamp : undefined"
-      />
+    <CardsGrid v-else-if="cards" :headline="headline" :reveal="reveal">
+      <template v-for="(card, i) in cards" :key="i">
+        <Card
+          v-if="reveal && i > 0"
+          v-bind="card"
+          :stamp="isSingleCard ? stamp : undefined"
+          v-click.up
+        />
+        <Card
+          v-else
+          v-bind="card"
+          :stamp="isSingleCard ? stamp : undefined"
+        />
+      </template>
     </CardsGrid>
     <StickersWall v-else-if="stickers" :items="stickers" :headline="headline" />
     <Cover

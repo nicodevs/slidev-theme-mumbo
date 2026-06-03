@@ -306,12 +306,36 @@
 
 /* ===== Cards layout ===== */
 
+.mumbo-cards-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mumbo-cards-headline {
+  text-align: center;
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0 0 2rem;
+  padding: 0 1rem;
+  max-width: min(90vw, 1100px);
+}
+
 .mumbo-cards-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
   max-width: min(90vw, 1100px);
+}
+
+/* Reveal mode: let v-click drive the entrance of clicked cards (first card stays visible) */
+.mumbo-cards-section.is-reveal .mumbo-cards-item.slidev-vclick-target {
+  animation: none;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease, translate 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mumbo-cards-item {
