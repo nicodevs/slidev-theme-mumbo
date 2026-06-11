@@ -6,7 +6,6 @@ defineOptions({ inheritAttrs: false })
 
 const props = defineProps<CoverProps & StampProps & {
   variant?: 'cover' | 'content'
-  width?: number | string
   items?: string[]
 }>()
 

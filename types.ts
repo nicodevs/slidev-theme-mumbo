@@ -26,9 +26,6 @@ export interface CoverProps {
   quote?: string
   subtitle?: string
   tag?: string
-}
-
-export interface CoverConfig extends CoverProps, StampProps {
   width?: number | string
 }
 

@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import Cover from '../components/Cover.vue'
-import type { CardItem, CoverConfig, CoverProps, LayoutBaseProps, StampProps, StickerItem } from '../types'
+import type { CardItem, CoverProps, LayoutBaseProps, StampProps, StickerItem } from '../types'
 
 const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
-  cover?: CoverConfig
   cards?: CardItem[]
   reveal?: boolean
   snippet?: string
@@ -15,17 +13,14 @@ const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
 
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
 const isSingleCard = computed(() => Array.isArray(props.cards) && props.cards.length === 1)
-const cardHostsStamp = computed(() => (!props.cover && !props.snippet && !props.cards && !props.stickers) || isSingleCard.value)
+const cardHostsStamp = computed(() => !props.snippet && !props.stickers && (!props.cards || isSingleCard.value))
 const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
 </script>
 
 <template>
   <Wrapper v-bind="$props" name="default">
     <PolaroidStamp v-for="(s, i) in wrapperStamps" :key="i" v-bind="s" />
-    <Cover v-if="cover" v-bind="cover">
-      <slot />
-    </Cover>
-    <CodeWindow v-else-if="snippet !== undefined" :title="snippet" :size="snippetSize">
+    <CodeWindow v-if="snippet !== undefined" :title="snippet" :size="snippetSize">
       <slot />
     </CodeWindow>
     <CardsGrid v-else-if="cards" :headline="headline" :reveal="reveal">
@@ -50,10 +45,24 @@ const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
       :label="label"
       :headline="headline"
       :subtitle="subtitle"
+      :tag="tag"
+      :quote="quote"
       :items="items"
       :stamp="stamp"
     />
-    <Cover v-else variant="content" :stamp="stamp">
+    <Cover
+      v-else-if="headline || quote"
+      :width="width"
+      :label="label"
+      :headline="headline"
+      :subtitle="subtitle"
+      :tag="tag"
+      :quote="quote"
+      :stamp="stamp"
+    >
+      <slot />
+    </Cover>
+    <Cover v-else variant="content" :label="label" :subtitle="subtitle" :tag="tag" :stamp="stamp">
       <slot />
     </Cover>
   </Wrapper>

@@ -2,73 +2,67 @@
 theme: ./
 layout: default
 pattern: grid
-cover:
-  label: MadVue 2026
-  headline: VUE REAL-TIME APPS
-  subtitle: A talk by Nico Devs
-  stamp:
-    url: https://vuejs.org/images/logo.png
-    position: tr
+label: MadVue 2026
+headline: VUE REAL-TIME APPS
+subtitle: A talk by Nico Devs
+stamp:
+  url: https://vuejs.org/images/logo.png
+  position: tr
 ---
 
 ---
 layout: default
 pattern: dots
-cover:
-  label: Intro
-  headline: Hi, I'm Nico
-  subtitle: Brief speaker intro
-  stamp:
-    emoji: 👋
-    position: tr
+label: Intro
+headline: Hi, I'm Nico
+subtitle: Brief speaker intro
+stamp:
+  emoji: 👋
+  position: tr
 ---
 
 ---
 layout: default
 pattern: stripes
-cover:
-  label: Section
-  headline: Time to Start Building
-  subtitle: Layouts & patterns
-  stamp:
-    url: https://vuejs.org/images/logo.png
-    position: tl
+label: Section
+headline: Time to Start Building
+subtitle: Layouts & patterns
+stamp:
+  url: https://vuejs.org/images/logo.png
+  position: tl
 ---
 
 ---
 layout: default
 pattern: gingham
-cover:
-  label: Statement
-  headline: Alpha Bravo Charlie Delta
-  subtitle: But we ship anyway
-  stamp:
-    url: https://vuejs.org/images/logo.png
-    position: br
+label: Statement
+headline: Alpha Bravo Charlie Delta
+subtitle: But we ship anyway
+stamp:
+  url: https://vuejs.org/images/logo.png
+  position: br
 ---
 
 ---
 layout: default
 pattern: grid
-cover:
-  label: Fact
-  headline: 42%
-  subtitle: of slides are made on a deadline
-  stamp:
-    url: https://vuejs.org/images/logo.png
-    position: bl
+label: Fact
+headline: 42%
+subtitle: of slides are made on a deadline
+stamp:
+  url: https://vuejs.org/images/logo.png
+  position: bl
 ---
 
 ---
 layout: default
 pattern: diagonal
-cover:
-  label: Quote
-  headline: Good Design Is As Little Design As Possible
-  subtitle: — Dieter Rams
-  stamp:
-    icon: mdi:format-quote-close
-    position: tr
+label: Quote
+quote: Good Design Is As Little Design As Possible
+subtitle: — Dieter Rams
+stamp:
+  icon: mdi:format-quote-close
+  position: tr
 ---
 
 ---
@@ -185,13 +179,12 @@ function submit() {
 ---
 layout: default
 pattern: stripes
-cover:
-  label: End
-  headline: Lorem Ipsum Finale
-  subtitle: That's a wrap
-  stamp:
-    url: https://vuejs.org/images/logo.png
-    position: bl
+label: End
+headline: Lorem Ipsum Finale
+subtitle: That's a wrap
+stamp:
+  url: https://vuejs.org/images/logo.png
+  position: bl
 ---
 
 ---
