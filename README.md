@@ -30,7 +30,7 @@ pattern: grid                   # grid | stripes | gingham | dots | diagonal | p
 backgroundColor: '#88a989'      # any hex — drives the pattern background color
 accentColor: '#16243a'          # color for links, strong, list markers, etc.
 label: Chapter One              # small label above the title
-headline: Lorem Ipsum Dolor     # large centered title → triggers cover card
+headline: Lorem Ipsum Dolor     # large centered title → triggers cover card (supports *italic*, **bold**, `code`)
 quote: Every site is real-time… # alternate title with curly quotes (takes precedence over headline)
 subtitle: Sit Amet              # small label below the title
 tag: INTRO                      # masking-tape badge across the card

@@ -41,8 +41,8 @@ const parsedItems = computed(() => props.items?.map((raw) => {
     <PolaroidStamp v-for="(s, i) in stamps" :key="i" v-bind="s" />
     <div v-if="tag" class="mumbo-tape">{{ tag }}</div>
     <div v-if="label" class="mumbo-label">{{ label }}</div>
-    <h1 v-if="quote" class="mumbo-title is-quote">{{ quote }}</h1>
-    <h1 v-else-if="headline" class="mumbo-title">{{ headline }}</h1>
+    <h1 v-if="quote" class="mumbo-title is-quote" v-html="inlineMarkdown(quote)" />
+    <h1 v-else-if="headline" class="mumbo-title" v-html="inlineMarkdown(headline)" />
     <div v-if="parsedItems" class="mumbo-items">
       <ul>
         <li v-for="(item, i) in parsedItems" :key="i" :data-marker="item.marker || null" :class="{ 'has-icon': item.icon }">

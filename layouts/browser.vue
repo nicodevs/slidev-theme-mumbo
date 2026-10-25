@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { inlineMarkdown } from '../utils/markdown'
 import { computed } from 'vue'
 import type { CoverProps, LayoutBaseProps, StampProps } from '../types'
 
@@ -17,8 +18,8 @@ const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.
     <div v-if="label || headline || quote || subtitle || tag" class="mumbo-browser-header">
       <div v-if="tag" class="mumbo-tape">{{ tag }}</div>
       <div v-if="label" class="mumbo-label">{{ label }}</div>
-      <h1 v-if="quote" class="mumbo-title is-quote">{{ quote }}</h1>
-      <h1 v-else-if="headline" class="mumbo-title">{{ headline }}</h1>
+      <h1 v-if="quote" class="mumbo-title is-quote" v-html="inlineMarkdown(quote)" />
+      <h1 v-else-if="headline" class="mumbo-title" v-html="inlineMarkdown(headline)" />
       <div v-if="subtitle" class="mumbo-subtitle">{{ subtitle }}</div>
     </div>
     <BrowserWindow :url="url" :image="image" :width="width" />

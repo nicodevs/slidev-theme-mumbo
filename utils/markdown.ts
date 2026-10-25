@@ -7,13 +7,14 @@ function escapeHtml(text: string): string {
     .replace(/>/g, '&gt;')
 }
 
-/** Inline markdown: `code`, **bold**, *italic* and [links](url). */
+/** Inline markdown: `code`, **bold**, *italic* or _italic_, and [links](url). */
 export function inlineMarkdown(text: string): string {
   return escapeHtml(text)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/(?<![\w])_([^_]+)_(?![\w])/g, '<em>$1</em>')
 }
 
 /** Inline markdown plus bullet lists: lines that start with "- " become a <ul>. */

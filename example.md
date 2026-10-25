@@ -14,7 +14,7 @@ stamp:
 layout: default
 pattern: dots
 label: Intro
-headline: Hi, I'm Nico
+headline: Hi, I'm *Nico*
 subtitle: Brief speaker intro
 stamp:
   emoji: 👋

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { inlineMarkdown } from '../utils/markdown'
 import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
 import type { StickerItem } from '../types'
@@ -36,7 +37,7 @@ function stickerClass(item: StickerItem) {
 
 <template>
   <div class="mumbo-stickers-section">
-    <h1 v-if="headline" class="mumbo-title mumbo-stickers-headline">{{ headline }}</h1>
+    <h1 v-if="headline" class="mumbo-title mumbo-stickers-headline" v-html="inlineMarkdown(headline)" />
     <div class="mumbo-stickers-wall">
       <span
         v-for="(item, i) in resolved"

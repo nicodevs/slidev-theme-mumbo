@@ -47,6 +47,17 @@
   font-style: italic;
 }
 
+/* Emphasis inside a headline keeps the headline's color */
+.mumbo-title em,
+.mumbo-title strong {
+  color: inherit;
+}
+
+/* Italic slant leans into the next word; give it a little room */
+.mumbo-title em {
+  padding-right: 0.1em;
+}
+
 .slidev-layout a {
   color: var(--mumbo-accent);
   text-decoration: none;
