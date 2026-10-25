@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { CardItem, CoverProps, LayoutBaseProps, StampProps, StickerItem } from '../types'
+import { inlineMarkdown } from '../utils/markdown'
 
 const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
   cards?: CardItem[]
@@ -21,9 +22,12 @@ const wrapperStamps = computed(() => (cardHostsStamp.value || snippetHostsStamp.
 <template>
   <Wrapper v-bind="$props" name="default">
     <PolaroidStamp v-for="(s, i) in wrapperStamps" :key="i" v-bind="s" />
-    <CodeWindow v-if="snippet !== undefined" :title="snippet" :size="snippetSize" :stamp="stamp">
-      <slot />
-    </CodeWindow>
+    <div v-if="snippet !== undefined" class="mumbo-snippet-section">
+      <h1 v-if="headline" class="mumbo-title mumbo-snippet-headline" v-html="inlineMarkdown(headline)" />
+      <CodeWindow :title="snippet" :size="snippetSize" :stamp="stamp">
+        <slot />
+      </CodeWindow>
+    </div>
     <CardsGrid v-else-if="cards" :headline="headline" :reveal="reveal">
       <template v-for="(card, i) in cards" :key="i">
         <Card

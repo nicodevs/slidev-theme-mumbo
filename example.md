@@ -167,6 +167,8 @@ stickers:
 layout: default
 pattern: grid
 snippet: chat.vue
+headline: Real-time *chat*
+headlineStroke: true
 stamp:
   url: https://vuejs.org/images/logo.png
   position: tr
