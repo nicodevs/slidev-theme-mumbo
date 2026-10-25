@@ -36,6 +36,7 @@ subtitle: Sit Amet              # small label below the title
 tag: INTRO                      # masking-tape badge across the card
 width: 85                       # cover card width as a percent
 headlineStroke: true            # outline the headline (true = white, or any CSS color)
+markerColor: '#2f6fb3'          # fill of the round markers in items lists (defaults to backgroundColor)
 stamp:                          # polaroid stamp
   url: /vue.svg                 # any square PNG/SVG
   position: tr                  # tl | tr | bl | br (default tr)
@@ -108,6 +109,15 @@ items:
   - (mdi:lightning-bolt) Super fast search
   - (mdi:spellcheck) Typo tolerance
   - (🔁) Emoji markers still work
+```
+
+Numbers and icons sit in a round marker filled with the slide's `backgroundColor`. Set `markerColor` to use a different color:
+
+```yaml
+markerColor: '#2f6fb3'
+items:
+  - (mdi:lightning-bolt) Super fast search
+  - (mdi:spellcheck) Typo tolerance
 ```
 
 ### Cards
@@ -221,7 +231,7 @@ Auto-imported and available inside any slide:
 
 ```ts
 import type {
-  LayoutBaseProps,  // class, pattern, backgroundColor, accentColor, headlineStroke
+  LayoutBaseProps,  // class, pattern, backgroundColor, accentColor, headlineStroke, markerColor
   StampProps,       // stamp
   StampConfig,      // { url?, emoji?, icon?, color?, position?, inset? }
   StampSide,        // 'tl' | 'tr' | 'bl' | 'br'

@@ -13,6 +13,7 @@ const cssVars = computed(() => {
   if (props.backgroundColor) style['--mumbo-bg'] = props.backgroundColor
   if (props.accentColor) style['--mumbo-accent'] = props.accentColor
   if (typeof props.headlineStroke === 'string') style['--mumbo-headline-stroke'] = props.headlineStroke
+  if (props.markerColor) style['--mumbo-marker-bg'] = props.markerColor
   return Object.keys(style).length ? style : undefined
 })
 </script>

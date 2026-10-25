@@ -16,6 +16,8 @@ export interface LayoutBaseProps {
   accentColor?: string
   /** Outline the headline so it reads on top of the pattern. `true` = white, or any CSS color. */
   headlineStroke?: boolean | string
+  /** Background of the round markers in `items` lists (numbers and icons). Defaults to the slide's backgroundColor. */
+  markerColor?: string
 }
 
 export interface StampProps {

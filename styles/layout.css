@@ -580,7 +580,7 @@
   height: 2.4rem;
   display: grid;
   place-items: center;
-  background: var(--mumbo-bg);
+  background: var(--mumbo-marker-bg, var(--mumbo-bg));
   color: #fff;
   border-radius: 50%;
   font-weight: 800;
@@ -594,17 +594,19 @@
 }
 
 .mumbo-items li.has-icon::before {
-  content: none;
+  /* keep the round container, the icon sits on top of it */
+  content: "";
 }
 
 .mumbo-items-icon {
   position: absolute;
-  left: 1.1rem;
+  left: calc(0.7rem + 0.5rem);
   top: 50%;
   transform: translateY(-50%);
-  width: 1.6rem;
-  height: 1.6rem;
-  color: var(--mumbo-accent);
+  z-index: 1;
+  width: 1.4rem;
+  height: 1.4rem;
+  color: #fff;
 }
 
 .mumbo-items strong,

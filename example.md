@@ -139,6 +139,7 @@ layout: default
 pattern: grid
 backgroundColor: '#b3cde4'
 headline: Icon markers
+markerColor: '#2f6fb3'
 items:
   - (mdi:lightning-bolt) Super fast search
   - (mdi:asterisk) Prefix and suffix wildcards
