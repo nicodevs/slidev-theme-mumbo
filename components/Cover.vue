@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Icon } from '@iconify/vue'
 import type { CoverProps, StampProps } from '../types'
+import { inlineMarkdown, isIconName } from '../utils/markdown'
 
 defineOptions({ inheritAttrs: false })
 
@@ -20,21 +22,11 @@ const cardMaxWidth = computed(() => asPct(props.width) ?? (props.items ? '80%' :
 
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
 
-function inlineMarkdown(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-}
-
 const parsedItems = computed(() => props.items?.map((raw) => {
   const m = raw.match(/^\(([^)]+)\)\s*(.*)$/)
   const { marker, text } = m ? { marker: m[1], text: m[2] } : { marker: null, text: raw }
-  return { marker, html: inlineMarkdown(text) }
+  const icon = isIconName(marker) ? marker : null
+  return { marker: icon ? null : marker, icon, html: inlineMarkdown(text) }
 }))
 </script>
 
@@ -53,7 +45,8 @@ const parsedItems = computed(() => props.items?.map((raw) => {
     <h1 v-else-if="headline" class="mumbo-title">{{ headline }}</h1>
     <div v-if="parsedItems" class="mumbo-items">
       <ul>
-        <li v-for="(item, i) in parsedItems" :key="i" :data-marker="item.marker || null">
+        <li v-for="(item, i) in parsedItems" :key="i" :data-marker="item.marker || null" :class="{ 'has-icon': item.icon }">
+          <Icon v-if="item.icon" :icon="item.icon" class="mumbo-items-icon" />
           <v-click><span v-html="item.html" /></v-click>
         </li>
       </ul>

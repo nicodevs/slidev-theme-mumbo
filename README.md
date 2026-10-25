@@ -101,6 +101,15 @@ items:
 
 Each item auto-wraps in `<v-click>` so they reveal one by one. Items support inline markdown and an optional `(marker)` prefix.
 
+A marker that contains `:` is treated as an [Iconify](https://icon-sets.iconify.design/) icon name instead of text:
+
+```yaml
+items:
+  - (mdi:lightning-bolt) Super fast search
+  - (mdi:spellcheck) Typo tolerance
+  - (🔁) Emoji markers still work
+```
+
 ### Cards
 
 ```yaml
@@ -121,6 +130,16 @@ cards:
 ```
 
 Add `reveal: true` to make cards appear one by one via `<v-click>`. The `label` field accepts an Iconify icon name (e.g. `mdi:home`).
+
+A card's `subtext` supports inline markdown (`` `code` ``, `**bold**`, `*italic*`, links) and bullet lists, one `- ` item per line:
+
+```yaml
+cards:
+  - text: Zero typo tolerance
+    subtext: |
+      - `Evanguelion` won't match `Evangelion`
+      - `Narutto` won't match `Naruto`
+```
 
 ### Stickers
 

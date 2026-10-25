@@ -117,6 +117,37 @@ cards:
 
 ---
 layout: default
+pattern: grid
+backgroundColor: '#b3cde4'
+headline: Card subtext with markdown
+headlineStroke: true
+cards:
+  - text: Bullets
+    subtext: |
+      - `Evanguelion` won't match `Evangelion`
+      - **Bold** and *italic* work too
+    label: mdi:format-list-bulleted
+    color: '#d64545'
+  - text: Inline
+    subtext: "`saw` won't match `chainsaw`"
+    label: mdi:code-tags
+    color: '#d64545'
+---
+
+---
+layout: default
+pattern: grid
+backgroundColor: '#b3cde4'
+headline: Icon markers
+items:
+  - (mdi:lightning-bolt) Super fast search
+  - (mdi:asterisk) Prefix and suffix wildcards
+  - (mdi:spellcheck) Typo tolerance
+  - (🔁) Emoji markers still work
+---
+
+---
+layout: default
 pattern: dots
 headline: Works in every browser
 headlineStroke: '#ffe873'

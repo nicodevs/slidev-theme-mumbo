@@ -31,6 +31,7 @@
     "setup",
     "styles",
     "types.ts",
+    "utils",
     "example.md"
   ],
   "scripts": {
