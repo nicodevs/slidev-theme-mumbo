@@ -102,8 +102,24 @@ cards:
 
 ---
 layout: default
+pattern: grid
+backgroundColor: '#b3cde4'
+headline: Pick your stack
+headlineStroke: true
+cards:
+  - text: Server-Sent Events
+    label: '01'
+    color: '#5da9e9'
+  - text: WebSockets
+    label: '02'
+    color: '#9b6dff'
+---
+
+---
+layout: default
 pattern: dots
 headline: Works in every browser
+headlineStroke: '#ffe873'
 stickers:
   - icon: logos:chrome
     rotation: -6

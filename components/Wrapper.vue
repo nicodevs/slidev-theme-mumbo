@@ -12,6 +12,7 @@ const cssVars = computed(() => {
   const style: Record<string, string> = {}
   if (props.backgroundColor) style['--mumbo-bg'] = props.backgroundColor
   if (props.accentColor) style['--mumbo-accent'] = props.accentColor
+  if (typeof props.headlineStroke === 'string') style['--mumbo-headline-stroke'] = props.headlineStroke
   return Object.keys(style).length ? style : undefined
 })
 </script>
@@ -19,7 +20,7 @@ const cssVars = computed(() => {
 <template>
   <div
     class="slidev-layout"
-    :class="[name, `mumbo-pattern-${pattern}`, props.class]"
+    :class="[name, `mumbo-pattern-${pattern}`, { 'has-headline-stroke': headlineStroke }, props.class]"
     :style="cssVars"
   >
     <slot />

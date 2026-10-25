@@ -14,6 +14,8 @@ export interface LayoutBaseProps {
   pattern?: string
   backgroundColor?: string
   accentColor?: string
+  /** Outline the headline so it reads on top of the pattern. `true` = white, or any CSS color. */
+  headlineStroke?: boolean | string
 }
 
 export interface StampProps {

@@ -197,6 +197,13 @@
   max-width: 16ch;
 }
 
+/* ===== Headline stroke (opt-in via `headlineStroke`) ===== */
+
+.slidev-layout.has-headline-stroke .mumbo-title {
+  -webkit-text-stroke: 0.2em var(--mumbo-headline-stroke, #fff);
+  paint-order: stroke fill;
+}
+
 /* ===== Masking-tape tag ===== */
 
 .mumbo-tape {

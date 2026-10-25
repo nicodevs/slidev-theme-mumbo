@@ -35,9 +35,26 @@ quote: Every site is real-time… # alternate title with curly quotes (takes pre
 subtitle: Sit Amet              # small label below the title
 tag: INTRO                      # masking-tape badge across the card
 width: 85                       # cover card width as a percent
+headlineStroke: true            # outline the headline (true = white, or any CSS color)
 stamp:                          # polaroid stamp
   url: /vue.svg                 # any square PNG/SVG
   position: tr                  # tl | tr | bl | br (default tr)
+---
+```
+
+### Headline stroke
+
+Set `headlineStroke` to outline the headline so it stays readable on top of the pattern. It's most useful for headlines that sit on the background, like the ones above cards and stickers. Use `true` for a white outline, or pass any CSS color.
+
+```yaml
+---
+pattern: grid
+backgroundColor: '#b3cde4'
+headline: Pick your stack
+headlineStroke: true            # or '#ffe873'
+cards:
+  - text: Server-Sent Events
+  - text: WebSockets
 ---
 ```
 
@@ -185,7 +202,7 @@ Auto-imported and available inside any slide:
 
 ```ts
 import type {
-  LayoutBaseProps,  // class, pattern, backgroundColor, accentColor
+  LayoutBaseProps,  // class, pattern, backgroundColor, accentColor, headlineStroke
   StampProps,       // stamp
   StampConfig,      // { url?, emoji?, icon?, color?, position?, inset? }
   StampSide,        // 'tl' | 'tr' | 'bl' | 'br'
