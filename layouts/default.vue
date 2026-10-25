@@ -14,13 +14,14 @@ const props = defineProps<LayoutBaseProps & StampProps & CoverProps & {
 const stamps = computed(() => props.stamp ? (Array.isArray(props.stamp) ? props.stamp : [props.stamp]) : [])
 const isSingleCard = computed(() => Array.isArray(props.cards) && props.cards.length === 1)
 const cardHostsStamp = computed(() => !props.snippet && !props.stickers && (!props.cards || isSingleCard.value))
-const wrapperStamps = computed(() => cardHostsStamp.value ? [] : stamps.value)
+const snippetHostsStamp = computed(() => props.snippet !== undefined)
+const wrapperStamps = computed(() => (cardHostsStamp.value || snippetHostsStamp.value) ? [] : stamps.value)
 </script>
 
 <template>
   <Wrapper v-bind="$props" name="default">
     <PolaroidStamp v-for="(s, i) in wrapperStamps" :key="i" v-bind="s" />
-    <CodeWindow v-if="snippet !== undefined" :title="snippet" :size="snippetSize">
+    <CodeWindow v-if="snippet !== undefined" :title="snippet" :size="snippetSize" :stamp="stamp">
       <slot />
     </CodeWindow>
     <CardsGrid v-else-if="cards" :headline="headline" :reveal="reveal">

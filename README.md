@@ -180,6 +180,8 @@ function poll() { /* ... */ }
 ```
 ````
 
+A `stamp` on a snippet slide pins to the corner of the code window instead of the slide.
+
 ### Content card (slot)
 
 With none of the above keys set, the slot renders inside a left-aligned cream content card:
