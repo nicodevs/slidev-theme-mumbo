@@ -390,6 +390,20 @@
   max-width: min(90vw, 1100px);
 }
 
+/* Wraps the grid so a `tag` tape can sit across its top edge */
+.mumbo-cards-body {
+  position: relative;
+}
+
+.mumbo-cards-body > .mumbo-tape {
+  top: -20px;
+}
+
+/* Leave room for the tape under the headline */
+.mumbo-cards-headline:has(+ .mumbo-cards-body > .mumbo-tape) {
+  margin-bottom: 3rem;
+}
+
 .mumbo-cards-grid {
   display: flex;
   flex-wrap: wrap;

@@ -28,7 +28,7 @@ const wrapperStamps = computed(() => (cardHostsStamp.value || snippetHostsStamp.
         <slot />
       </CodeWindow>
     </div>
-    <CardsGrid v-else-if="cards" :headline="headline" :reveal="reveal">
+    <CardsGrid v-else-if="cards" :headline="headline" :reveal="reveal" :tag="tag">
       <template v-for="(card, i) in cards" :key="i">
         <Card
           v-if="reveal && i > 0"

@@ -33,7 +33,7 @@ label: Chapter One              # small label above the title
 headline: Lorem Ipsum Dolor     # large centered title → triggers cover card (supports *italic*, **bold**, `code`)
 quote: Every site is real-time… # alternate title with curly quotes (takes precedence over headline)
 subtitle: Sit Amet              # small label below the title
-tag: INTRO                      # masking-tape badge across the card
+tag: INTRO                      # masking-tape badge across the card (in cards mode, across the top of the grid)
 width: 85                       # cover card width as a percent
 headlineStroke: true            # outline the headline (true = white, or any CSS color)
 markerColor: '#2f6fb3'          # fill of the round markers in items lists (defaults to backgroundColor)
